@@ -3,7 +3,7 @@ import { css } from '@emotion/react';
 const global = css`
     :root {
         --min-width: 320px;
-        --max-width: 640px;
+        --max-width: 768px;
         line-height: 1.5;
         font-weight: 400;
     }
