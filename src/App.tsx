@@ -10,6 +10,9 @@ import global from '@common/styles/global';
 import reset from '@common/styles/reset';
 import theme from '@common/styles/theme';
 
+import { GlobalPortal } from '@/GlobalPortal';
+
+import JoinPage from '@pages/JoinPage.tsx';
 import ListDetailPage from '@pages/ListDetailPage.tsx';
 import ListPage from '@pages/ListPage.tsx';
 import LoginPage from '@pages/LoginPage.tsx';
@@ -29,25 +32,28 @@ function App() {
     };
 
     return (
-        <ThemeProvider theme={theme}>
-            <Global styles={[reset, global]} />
-            <Layout>
-                <BrowserRouter>
-                    <Suspense fallback={<Loading />}>
-                        <ScrollToTop />
-                        <Routes>
-                            <Route path="/" element={<MainPage />} />
-                            <Route path="/list" element={<ListPage />} />
-                            <Route path="/listDetail" element={<ListDetailPage />} />
-                            <Route path="/login" element={<LoginPage />} />
-                            <Route path="/payment" element={<PaymentPage />} />
-                            <Route path="/my" element={<MyPage />} />
-                            {/*<Route path="/*" element={<NotFound />} />*/}
-                        </Routes>
-                    </Suspense>
-                </BrowserRouter>
-            </Layout>
-        </ThemeProvider>
+        <GlobalPortal.Provider>
+            <ThemeProvider theme={theme}>
+                <Global styles={[reset, global]} />
+                <Layout>
+                    <BrowserRouter>
+                        <Suspense fallback={<Loading />}>
+                            <ScrollToTop />
+                            <Routes>
+                                <Route path="/login" element={<LoginPage />} />
+                                <Route path="/main" element={<MainPage />} />
+                                <Route path="/join" element={<JoinPage />} />
+                                <Route path="/list" element={<ListPage />} />
+                                <Route path="/listDetail" element={<ListDetailPage />} />
+                                <Route path="/payment" element={<PaymentPage />} />
+                                <Route path="/my" element={<MyPage />} />
+                                {/*<Route path="/*" element={<NotFound />} />*/}
+                            </Routes>
+                        </Suspense>
+                    </BrowserRouter>
+                </Layout>
+            </ThemeProvider>
+        </GlobalPortal.Provider>
     );
 }
 
