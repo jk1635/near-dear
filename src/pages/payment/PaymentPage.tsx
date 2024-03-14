@@ -1,11 +1,11 @@
 import Container from '@common/components/Container.tsx';
 
-const MainPage = () => {
+const PaymentPage = () => {
     return (
         <Container>
-            <h1>MainPage</h1>
+            <h1>PaymentPage</h1>
         </Container>
     );
 };
 
-export default MainPage;
+export default PaymentPage;

@@ -1,11 +1,11 @@
 import Container from '@common/components/Container.tsx';
 
-const MainPage = () => {
+const PartnerMyPage = () => {
     return (
         <Container>
-            <h1>MainPage</h1>
+            <h1>PartnerMyPage</h1>
         </Container>
     );
 };
 
-export default MainPage;
+export default PartnerMyPage;

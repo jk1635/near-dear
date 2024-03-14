@@ -1,4 +1,4 @@
-import BasicContainer from './BasicContainer';
+import BasicContainer from './Container.tsx';
 
 const Loading = () => {
     return (
