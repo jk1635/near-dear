@@ -43,7 +43,7 @@ const HeaderContainer = styled.header`
     min-width: var(--min-width);
     max-width: var(--max-width);
     padding: 0 1.5rem;
-    background-color: #ffffff;
+    background-color: rgb(252, 252, 252);
     transform: translateX(-50%);
 `;
 
