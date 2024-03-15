@@ -1,37 +1,40 @@
-import { FunctionComponent } from 'react';
-
-import CompletePage from '@pages/auth/CompletePage.tsx';
-import IntroPage from '@pages/auth/IntroPage.tsx';
-import LoginPage from '@pages/auth/LoginPage.tsx';
-import SignUpPage from '@pages/auth/SignUpPage.tsx';
-import ListPage from '@pages/ListPage.tsx';
-import MainPage from '@pages/MainPage.tsx';
-import PartnerAddProductPage from '@pages/partner/PartnerAddProductPage.tsx';
-import PartnerEditProfilePage from '@pages/partner/PartnerEditProfilePage.tsx';
-import PartnerMyPage from '@pages/partner/PartnerMyPage.tsx';
-import AddCardPage from '@pages/payment/AddCardPage.tsx';
-import PaymentPage from '@pages/payment/PaymentPage.tsx';
-import PaymentSuccessPage from '@pages/payment/PaymentSuccessPage.tsx';
-import SearchPage from '@pages/SearchPage.tsx';
-import MyPage from '@pages/user/MyPage.tsx';
-import ProfileEditPage from '@pages/user/ProfileEditPage.tsx';
+import { FunctionComponent, lazy } from 'react';
 
 interface RouteConfig {
     path: string;
     Component: FunctionComponent;
     title?: string;
     showBackButton?: boolean;
+    showBottomTab?: boolean;
 }
 
+const MainPage = lazy(() => import('@pages/MainPage'));
+const IntroPage = lazy(() => import('@pages/auth/IntroPage'));
+const LoginPage = lazy(() => import('@pages/auth/LoginPage'));
+const UserTypePage = lazy(() => import('@pages/auth/UserTypePage'));
+const SignUpPage = lazy(() => import('@pages/auth/SignUpPage'));
+const CompletePage = lazy(() => import('@pages/auth/CompletePage'));
+const SearchPage = lazy(() => import('@pages/SearchPage'));
+const ListPage = lazy(() => import('@pages/ListPage'));
+const MyPage = lazy(() => import('@pages/user/MyPage'));
+const ProfileEditPage = lazy(() => import('@pages/user/ProfileEditPage'));
+const PartnerMyPage = lazy(() => import('@pages/partner/PartnerMyPage'));
+const PartnerAddProductPage = lazy(() => import('@pages/partner/PartnerAddProductPage'));
+const PartnerEditProfilePage = lazy(() => import('@pages/partner/PartnerEditProfilePage'));
+const PaymentPage = lazy(() => import('@pages/payment/PaymentPage'));
+const AddCardPage = lazy(() => import('@pages/payment/AddCardPage'));
+const PaymentSuccessPage = lazy(() => import('@pages/payment/PaymentSuccessPage'));
+
 const RouteConfig: RouteConfig[] = [
-    { path: 'main', Component: MainPage, title: '메인' },
+    { path: 'main', Component: MainPage, title: '메인', showBottomTab: true },
     { path: 'intro', Component: IntroPage },
     { path: 'login', Component: LoginPage, title: '로그인' },
+    { path: 'userType', Component: UserTypePage, title: '회원가입', showBackButton: true },
     { path: 'signUp', Component: SignUpPage, title: '회원가입' },
     { path: 'complete', Component: CompletePage },
-    { path: 'search', Component: SearchPage },
-    { path: 'list', Component: ListPage },
-    { path: 'user/my', Component: MyPage, title: '마이페이지' },
+    { path: 'search', Component: SearchPage, showBottomTab: true },
+    { path: 'list', Component: ListPage, showBottomTab: true },
+    { path: 'user/my', Component: MyPage, title: '마이페이지', showBottomTab: true },
     { path: 'user/editProfile', Component: ProfileEditPage, title: '프로필 수정', showBackButton: true },
     { path: 'partner/my', Component: PartnerMyPage, title: '마이페이지' },
     { path: 'partner/addProduct', Component: PartnerAddProductPage, title: '상품 등록', showBackButton: true },
