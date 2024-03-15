@@ -10,8 +10,19 @@ interface BasicContainerProps {
 const Container = ({ children, isCentered = false }: BasicContainerProps) => {
     const ContainerBox = isCentered ? CenterContainer : BasicContainer;
 
-    return <ContainerBox>{children}</ContainerBox>;
+    return (
+        <LayoutContainer>
+            <ContainerBox>{children}</ContainerBox>
+        </LayoutContainer>
+    );
 };
+
+const LayoutContainer = styled.main`
+    min-width: var(--min-width);
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+`;
 
 const BasicContainer = styled.div`
     padding-top: 3.5rem;
