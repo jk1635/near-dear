@@ -1,23 +1,50 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
-import SelectedList from './SelectedList';
+import { SelectedList } from './SelectedList';
 
 const List = () => {
     const category = ['상품', '당일예약', '클래스'];
+    const [categoryState, setCategoryState] = useState('상품');
+
+    const categoryOnClick = (itm: string) => {
+        if (itm === '상품') {
+            setCategoryState('상품');
+        }
+        if (itm === '당일예약') {
+            setCategoryState('당일예약');
+        }
+        if (itm === '클래스') {
+            setCategoryState('클래스');
+        }
+    };
+
+    const isToday = () => {};
 
     return (
-        <div>
+        <>
             <Menu>
                 {category.map(itm => (
-                    <MenuItem>{itm}</MenuItem>
+                    <MenuItem onClick={() => categoryOnClick(itm)}>{itm}</MenuItem>
                 ))}
             </Menu>
             <SelectedList_CSS>
-                {SelectedList.map(itm => (
-                    <ListItem>{itm.상점이름}</ListItem>
-                ))}
+                {categoryState === '상품'
+                    ? SelectedList.map(itm => {
+                          if (itm.유형 === '일반') return <ListItem>{itm.유형}</ListItem>;
+                      })
+                    : ''}
+                {categoryState === '당일예약'
+                    ? SelectedList.map(itm => {
+                          if (itm.유형 === '당일예약') return <ListItem>{itm.유형}</ListItem>;
+                      })
+                    : ''}
+                {categoryState === '클래스'
+                    ? SelectedList.map(itm => {
+                          if (itm.유형 === '클래스') return <ListItem>{itm.유형}</ListItem>;
+                      })
+                    : ''}
             </SelectedList_CSS>
-        </div>
+        </>
     );
 };
 
