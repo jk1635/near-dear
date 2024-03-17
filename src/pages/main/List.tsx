@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { SelectedList } from './SelectedList';
+import Button from '@/common/components/Button';
 
 const List = () => {
     const category = ['상품', '당일예약', '클래스'];
@@ -35,7 +36,7 @@ const List = () => {
                     : ''}
                 {categoryState === '당일예약'
                     ? SelectedList.map(itm => {
-                          if (itm.유형 === '당일예약') return <ListItem>{itm.유형}</ListItem>;
+                          if (itm.당일예약가능여부 === 'yes') return <ListItem>{itm.유형}</ListItem>;
                       })
                     : ''}
                 {categoryState === '클래스'
@@ -44,6 +45,7 @@ const List = () => {
                       })
                     : ''}
             </SelectedList_CSS>
+            <Button>전체보기</Button>
         </>
     );
 };
@@ -64,6 +66,8 @@ const ListItem = styled.div`
     padding: 15px;
     box-sizing: border-box;
     height: 80px;
+    border: 1px solid lightgray;
+    margin-bottom: 10px;
 `;
 
 export default List;

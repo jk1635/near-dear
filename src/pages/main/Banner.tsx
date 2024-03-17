@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Banner = () => {
-    return <div>MainBanner</div>;
+    return <div>지역</div>;
 };
 
 export default Banner;
