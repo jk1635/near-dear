@@ -6,6 +6,7 @@ import Button from '@/common/components/Button';
 const List = () => {
     const category = ['상품', '당일예약', '클래스'];
     const [categoryState, setCategoryState] = useState('상품');
+    const [clicked, setClicked] = useState(false);
 
     const categoryOnClick = (itm: string) => {
         if (itm === '상품') {
@@ -65,7 +66,7 @@ const SelectedList_CSS = styled.div`
 const ListItem = styled.div`
     padding: 15px;
     box-sizing: border-box;
-    height: 80px;
+    height: 120px;
     border: 1px solid lightgray;
     margin-bottom: 10px;
 `;

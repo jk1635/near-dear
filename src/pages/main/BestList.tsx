@@ -9,8 +9,10 @@ const BestList = () => {
             <Scroll>
                 {BestListData.map(itm => (
                     <BestItem>
-                        {itm.이름}
-                        {itm.지역}
+                        <Img />
+                        <Name> {itm.이름}</Name>
+                        <Location> {itm.지역}</Location>
+                        <Price> {itm.가격}원</Price>
                     </BestItem>
                 ))}
             </Scroll>
@@ -35,14 +37,22 @@ const Scroll = styled.div`
     -ms-overflow-style: none;
 `;
 
-const BestItem = styled.div`
+const Img = styled.img`
     width: 150px;
     height: 150px;
     background-color: #faf0e6;
-    margin-right: 10px;
     min-width: 150px;
     min-height: 150px;
+`;
+const BestItem = styled.div`
+    margin-right: 10px;
     display: flex;
     flex-direction: column;
+    min-width: 150px;
+    gap: 10px;
 `;
+
+const Name = styled.div``;
+const Location = styled.div``;
+const Price = styled.div``;
 export default BestList;
