@@ -32,17 +32,27 @@ const List = () => {
             <SelectedList_CSS>
                 {categoryState === '상품'
                     ? SelectedList.map(itm => {
-                          if (itm.유형 === '일반') return <ListItem>{itm.유형}</ListItem>;
+                          if (itm.type === '일반')
+                              return (
+                                  <ListItem>
+                                      <Img></Img>
+                                      <Name>{itm.name}</Name>
+                                      <Price>{itm.discount}</Price>
+                                      <Location>
+                                          {itm.location} {itm.store}
+                                      </Location>
+                                  </ListItem>
+                              );
                       })
                     : ''}
                 {categoryState === '당일예약'
                     ? SelectedList.map(itm => {
-                          if (itm.당일예약가능여부 === 'yes') return <ListItem>{itm.유형}</ListItem>;
+                          if (itm.당일예약가능여부 === 'yes') return <ListItem>{itm.type}</ListItem>;
                       })
                     : ''}
                 {categoryState === '클래스'
                     ? SelectedList.map(itm => {
-                          if (itm.유형 === '클래스') return <ListItem>{itm.유형}</ListItem>;
+                          if (itm.type === '클래스') return <ListItem>{itm.type}</ListItem>;
                       })
                     : ''}
             </SelectedList_CSS>
@@ -69,6 +79,13 @@ const ListItem = styled.div`
     height: 120px;
     border: 1px solid lightgray;
     margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
 `;
 
+const Img = styled.img``;
+
+const Price = styled.div``;
+const Location = styled.div``;
+const Name = styled.div``;
 export default List;

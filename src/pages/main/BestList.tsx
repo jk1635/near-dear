@@ -25,6 +25,7 @@ const Container = styled.div`
     flex-direction: column;
     width: 100%;
     overflow: auto;
+    margin-top: 10px;
 `;
 
 const Title = styled.div``;
