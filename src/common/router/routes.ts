@@ -16,6 +16,7 @@ const SignUpPage = lazy(() => import('@pages/auth/SignUpPage'));
 const CompletePage = lazy(() => import('@pages/auth/CompletePage'));
 const SearchPage = lazy(() => import('@pages/SearchPage'));
 const ListPage = lazy(() => import('@pages/ListPage'));
+const DetailPage = lazy(() => import('@pages/DetailPage'));
 const MyPage = lazy(() => import('@pages/user/MyPage'));
 const ProfileEditPage = lazy(() => import('@pages/user/ProfileEditPage'));
 const PartnerMyPage = lazy(() => import('@pages/partner/PartnerMyPage'));
@@ -32,6 +33,7 @@ const RouteConfig: RouteConfig[] = [
     { path: 'userType', Component: UserTypePage, title: '회원가입', showBackButton: true },
     { path: 'signUp', Component: SignUpPage, title: '회원가입' },
     { path: 'complete', Component: CompletePage },
+    { path: 'detail', Component: DetailPage, title: '상세페이지' },
     { path: 'search', Component: SearchPage, showBottomTab: true },
     { path: 'list', Component: ListPage, showBottomTab: true },
     { path: 'user/my', Component: MyPage, title: '마이페이지', showBottomTab: true },
