@@ -25,12 +25,11 @@ const ButtonWrapper = styled.button`
     padding: 0 1.5rem;
     border-radius: 0.75rem;
     background-color: ${({ theme }) => theme.colors.primary};
-    color: ${({ theme }) => theme.colors.white};
     cursor: pointer;
 `;
 
 const Label = styled.span`
-    color: ${({ theme }) => theme.colors.white};
+    color: ${({ theme }) => theme.colors.black};
     font-size: 0.875rem;
     font-weight: bold;
     text-decoration: none;

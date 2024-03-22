@@ -25,6 +25,15 @@ const global = css`
     body {
         height: 100%;
     }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    button {
+        border: 0;
+    }
 `;
 
 export default global;
