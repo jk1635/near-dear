@@ -5,7 +5,7 @@ const theme: Theme = {
         primary: '#fef3d3',
         black: '#141618',
         white: '#ffffff',
-        gray: '#f2f5f7',
+        gray: '#c2cfd9',
     },
     typography: {
         t1: { fontSize: '1.5rem', fontWeight: 700, lineHeight: '1.5' },
