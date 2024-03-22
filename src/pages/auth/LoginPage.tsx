@@ -8,8 +8,6 @@ const LoginPage = () => {
 
     return (
         <Container>
-            <h1>LoginPage</h1>
-
             <LoginInputWrapper>
                 <Label>이메일</Label>
                 <Input type="text" />
@@ -27,9 +25,7 @@ const LoginInputWrapper = styled.section`
     flex-direction: column;
 `;
 
-const Label = styled.label`
-    border: 1px solid rgb(223, 226, 229);
-`;
+const Label = styled.label``;
 
 const Input = styled.input`
     border: 1px solid rgb(223, 226, 229);
