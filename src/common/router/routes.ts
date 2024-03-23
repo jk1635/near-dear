@@ -26,12 +26,12 @@ const AddCardPage = lazy(() => import('@pages/payment/AddCardPage'));
 const PaymentSuccessPage = lazy(() => import('@pages/payment/PaymentSuccessPage'));
 
 const RouteConfig: RouteConfig[] = [
+    { path: '/', Component: IntroPage },
     { path: 'main', Component: MainPage, title: '메인', showBottomTab: true },
-    { path: 'intro', Component: IntroPage },
     { path: 'login', Component: LoginPage, title: '로그인' },
-    { path: 'userType', Component: UserTypePage, title: '회원가입', showBackButton: true },
-    { path: 'signUp', Component: SignUpPage, title: '회원가입' },
-    { path: 'complete', Component: CompletePage },
+    { path: 'userType', Component: UserTypePage, showBackButton: true },
+    { path: 'signUp/:type', Component: SignUpPage, title: '회원가입', showBackButton: true },
+    { path: 'complete/:type', Component: CompletePage },
     { path: 'search', Component: SearchPage, showBottomTab: true },
     { path: 'list', Component: ListPage, showBottomTab: true },
     { path: 'user/my', Component: MyPage, title: '마이페이지', showBottomTab: true },
