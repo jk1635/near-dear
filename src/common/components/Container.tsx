@@ -34,7 +34,7 @@ const CenterContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: calc(100vh - 5.5rem);
 `;
 
 export default Container;

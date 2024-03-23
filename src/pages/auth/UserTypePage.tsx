@@ -1,13 +1,32 @@
+import { useNavigate } from 'react-router-dom';
+
 import styled from '@emotion/styled';
 
+import Button from '@common/components/Button.tsx';
 import Container from '@common/components/Container.tsx';
 
 const UserTypePage = () => {
+    const navigate = useNavigate();
+
     return (
         <Container isCentered={true}>
             <UserTypeWrapper>
-                <UserTypeButton>상품 구매를 원하시는 고객</UserTypeButton>
-                <UserTypeButton>상품 판매를 원하시는 파트너사</UserTypeButton>
+                <Button
+                    onClick={() => {
+                        navigate('/signUp/user');
+                    }}
+                    variant="outline"
+                >
+                    상품 구매를 원하는 고객
+                </Button>
+                <Button
+                    onClick={() => {
+                        navigate('/signUp/partner');
+                    }}
+                    variant="outline"
+                >
+                    상품 판매를 원하는 파트너사
+                </Button>
             </UserTypeWrapper>
         </Container>
     );
@@ -17,19 +36,7 @@ const UserTypeWrapper = styled.section`
     display: flex;
     flex-direction: column;
     width: 100%;
-`;
-
-const UserTypeButton = styled.button`
-    margin-bottom: 0.5rem;
-    padding: 2rem;
-    border: 1px solid ${({ theme }) => theme.colors.gray};
-    border-radius: 0.5rem;
-    background-color: ${({ theme }) => theme.colors.white};
-    cursor: pointer;
-
-    :hover {
-        background-color: ${({ theme }) => theme.colors.gray};
-    }
+    margin-top: 5.5rem;
 `;
 
 export default UserTypePage;
