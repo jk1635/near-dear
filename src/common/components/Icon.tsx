@@ -24,10 +24,6 @@ const Icon = ({ size, bold, color, children }: IconProps) => {
 
 const IconWrapper = styled.div<{ color?: string; animate?: boolean }>`
     color: ${({ color, theme }) => (color ? color : theme.colors.black)};
-    user-select: none;
-    -webkit-user-select: none;
-    -webkit-user-drag: none;
-    -webkit-touch-callout: none;
 `;
 
 export default Icon;
