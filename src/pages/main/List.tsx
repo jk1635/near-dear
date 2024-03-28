@@ -6,7 +6,7 @@ import Button from '@/common/components/Button';
 const List = () => {
     const category = ['상품', '당일예약', '클래스'];
     const [categoryState, setCategoryState] = useState('상품');
-    const [clicked, setClicked] = useState(false);
+    // const [clicked, setClicked] = useState(false);
 
     const categoryOnClick = (itm: string) => {
         if (itm === '상품') {
@@ -19,8 +19,6 @@ const List = () => {
             setCategoryState('클래스');
         }
     };
-
-    const isToday = () => {};
 
     return (
         <>
