@@ -13,7 +13,7 @@ export const ReservationData = [
     {
         product: '꽃다발',
         name: '레아',
-        howToFind: '픽업',
+        howToFind: '퀵',
         time: '2024/04/27 PM 2:00',
         count: 1,
         price: '50,000원',
