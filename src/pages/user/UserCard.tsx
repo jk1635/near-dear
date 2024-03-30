@@ -43,6 +43,7 @@ const Name = styled.div`
     display: flex;
     align-items: center;
     gap: 10px;
+    font-weight: 600;
 `;
 const Email = styled.div``;
 
