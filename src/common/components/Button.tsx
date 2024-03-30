@@ -1,9 +1,9 @@
 import { forwardRef, ReactNode, ButtonHTMLAttributes } from 'react';
 
-import { Theme } from '@emotion/react';
+import { css, Theme } from '@emotion/react';
 import styled from '@emotion/styled';
 
-type ButtonVariant = 'basic' | 'gray' | 'outline';
+type ButtonVariant = 'basic' | 'gray' | 'outline' | 'disabled';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: ReactNode;
@@ -28,33 +28,29 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
 const variantStyles = ({ variant, theme }: VariantStyles) => {
     switch (variant) {
+        case 'disabled':
+            return css`
+                background-color: ${theme.colors.gray};
+                color: ${theme.colors.black};
+            `;
         case 'outline':
-            return {
-                marginBottom: '1rem',
-                padding: '1.5rem',
-                border: `1px solid ${theme.colors.gray}`,
-                backgroundColor: theme.colors.white,
-                ...theme.typography.t6,
-                '&:last-of-type': {
-                    marginBottom: '0',
-                },
-                '&:hover': {
-                    backgroundColor: theme.colors.gray,
-                },
-            };
+            return css`
+                margin-bottom: 1rem;
+                padding: 1.5rem;
+                border: 1px solid ${theme.colors.gray};
+            `;
         case 'gray':
-            return {
-                backgroundColor: 'transparent',
-                color: theme.colors.gray,
-                ...theme.typography.caption,
-            };
+            return css`
+                background-color: transparent;
+                color: ${theme.colors.gray};
+            `;
         default:
-            return {
-                backgroundColor: theme.colors.primary,
-                color: theme.colors.black,
-                height: '3.5rem',
-                ...theme.typography.button,
-            };
+            return css`
+                background-color: ${theme.colors.primary};
+                color: ${theme.colors.black};
+                height: 3.5rem;
+                ${theme.typography.button};
+            `;
     }
 };
 
