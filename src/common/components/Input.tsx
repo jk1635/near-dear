@@ -1,17 +1,19 @@
-import { HTMLAttributes } from 'react';
+import { ChangeEvent, HTMLAttributes } from 'react';
 
 import styled from '@emotion/styled';
 
 interface InputProps extends HTMLAttributes<HTMLDivElement> {
     label: string;
     placeholder?: string;
+    onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+    type?: string;
 }
 
-const Input = ({ label, placeholder }: InputProps) => {
+const Input = ({ label, placeholder, onChange, type }: InputProps) => {
     return (
         <InputWrapper>
             <Label>{label}</Label>
-            <InputBox placeholder={placeholder} />
+            <InputBox placeholder={placeholder} type={type} onChange={onChange} />
         </InputWrapper>
     );
 };
