@@ -1,5 +1,5 @@
 import '@emotion/react';
-import theme from '@styles/theme';
+import theme from '@common/styles/theme.ts';
 
 type NDTheme = typeof theme;
 
