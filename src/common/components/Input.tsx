@@ -22,6 +22,7 @@ const Input = ({ label, placeholder, onChange, type = 'text', value }: InputProp
 const InputWrapper = styled.div`
     display: flex;
     flex-direction: column;
+    width: 100%;
 `;
 
 const Label = styled.label`
