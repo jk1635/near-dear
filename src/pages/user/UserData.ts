@@ -1,6 +1,6 @@
 export const UserInformation = {
     img: '',
-    userType: 'seller',
+    userType: 'user',
     name: '레아',
     email: 'lea@lea.com',
 };
