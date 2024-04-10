@@ -10,9 +10,31 @@ import { OutgoingMessage } from 'http';
 
 const List = () => {
     const [isActive, setIsActive] = useState(false);
+    const [categoryState, setCategoryState] = useState('예약' || '구매내역');
 
     const UserMenu = ['구매내역', '좋아요'];
     const SellerMenu = ['예약', '완료', '내상품'];
+
+    const categoryOnClick = itm => {
+        if (UserInformation.userType === 'user') {
+            if (itm === '구매내역') {
+                setCategoryState('구매내역');
+            }
+            if (itm === '좋아요') {
+                setCategoryState('좋아요');
+            }
+        } else {
+            if (itm === '예약') {
+                setCategoryState('예약');
+            }
+            if (itm === '예약') {
+                setCategoryState('완료');
+            }
+            if (itm === '예약') {
+                setCategoryState('내상품');
+            }
+        }
+    };
 
     const activeHandler = (itm: any, idx: number) => {
         setIsActive(isActive);
