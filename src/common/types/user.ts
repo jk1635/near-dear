@@ -16,4 +16,9 @@ interface PartnerSignUpForm {
     businessContactNumber: string;
 }
 
-export type { SignUpForm, PartnerSignUpForm };
+interface LoginForm {
+    email: string;
+    password: string;
+}
+
+export type { SignUpForm, PartnerSignUpForm, LoginForm };

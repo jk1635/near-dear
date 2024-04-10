@@ -1,5 +1,5 @@
 import { ProductForm } from '@common/types/products.ts';
-import { PartnerSignUpForm, SignUpForm } from '@common/types/user.ts';
+import { LoginForm, PartnerSignUpForm, SignUpForm } from '@common/types/user.ts';
 
 // 회원가입 폼 초기값
 const initialSignUpForm: SignUpForm = {
@@ -30,4 +30,10 @@ const initialProductForm: ProductForm = {
     category: '',
 };
 
-export { initialPartnerSignUpForm, initialSignUpForm, initialProductForm };
+// 로그인 폼 초기값
+const initialLoginForm: LoginForm = {
+    email: '',
+    password: '',
+};
+
+export { initialPartnerSignUpForm, initialSignUpForm, initialProductForm, initialLoginForm };
