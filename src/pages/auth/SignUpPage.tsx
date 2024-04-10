@@ -1,19 +1,26 @@
-import { useNavigate, useParams } from 'react-router-dom';
+import { useState } from 'react';
+
+import { useParams } from 'react-router-dom';
 
 import Button from '@common/components/Button.tsx';
 import Container from '@common/components/Container.tsx';
 import FixedBottom from '@common/components/FixedBottom.tsx';
 import Input from '@common/components/Input.tsx';
+import { initialPartnerSignUpForm, initialSignUpForm } from '@common/constants';
+import { useSignUp, usePartnerSignUp } from '@common/hooks/useUser.ts';
 
 const SignUpPage = () => {
     const { type } = useParams();
-    const navigate = useNavigate();
+    const userMutation = useSignUp();
+    const partnerMutation = usePartnerSignUp();
+    const [form] = useState(initialSignUpForm);
+    const [partnerForm] = useState(initialPartnerSignUpForm);
 
     const handleSignUp = () => {
         if (type === 'user') {
-            navigate('/complete/user');
+            userMutation.mutate(form);
         } else if (type === 'partner') {
-            navigate('/complete/partner');
+            partnerMutation.mutate(partnerForm);
         }
     };
 
