@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import styled from '@emotion/styled';
-// import Button from '@/common/components/Button';
+// import Button from '@common/components/Button';
 
 import { ReservationData } from './ReservationData';
 import { UserInformation } from './UserData';

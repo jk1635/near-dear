@@ -8,7 +8,7 @@ interface RouteConfig {
     showBottomTab?: boolean;
 }
 
-const MainPage = lazy(() => import('@/pages/main/MainPage'));
+const MainPage = lazy(() => import('@pages/main/MainPage'));
 const IntroPage = lazy(() => import('@pages/auth/IntroPage'));
 const LoginPage = lazy(() => import('@pages/auth/LoginPage'));
 const UserTypePage = lazy(() => import('@pages/auth/UserTypePage'));

@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import styled from '@emotion/styled';
 
-import Button from '@/common/components/Button';
+import Button from '@common/components/Button';
 
 import { SelectedList } from './SelectedList';
 
