@@ -1,23 +1,21 @@
-import { ChangeEvent, HTMLAttributes } from 'react';
+import { forwardRef } from 'react';
 
 import styled from '@emotion/styled';
 
-interface InputProps extends HTMLAttributes<HTMLDivElement> {
+interface InputProps {
     label: string;
     placeholder?: string;
-    onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
     type?: string;
-    value?: string;
 }
 
-const Input = ({ label, placeholder, onChange, type = 'text', value }: InputProps) => {
+const Input = forwardRef<HTMLInputElement, InputProps>(({ label, placeholder, type = 'text' }, ref) => {
     return (
         <InputWrapper>
             <Label>{label}</Label>
-            <InputBox placeholder={placeholder} type={type} onChange={onChange} value={value} />
+            <InputBox autoComplete="off" placeholder={placeholder} type={type} ref={ref} />
         </InputWrapper>
     );
-};
+});
 
 const InputWrapper = styled.div`
     display: flex;
