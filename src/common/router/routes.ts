@@ -30,16 +30,11 @@ const RouteConfig: RouteConfig[] = [
     { path: '/', Component: IntroPage },
     { path: 'main', Component: MainPage, title: '메인', showBottomTab: true },
     { path: 'login', Component: LoginPage, title: '로그인' },
-<<<<<<< HEAD
+
     { path: 'userType', Component: UserTypePage, showBackButton: true },
     { path: 'signUp/:type', Component: SignUpPage, title: '회원가입', showBackButton: true },
     { path: 'complete/:type', Component: CompletePage },
-=======
-    { path: 'userType', Component: UserTypePage, title: '회원가입', showBackButton: true },
-    { path: 'signUp', Component: SignUpPage, title: '회원가입' },
-    { path: 'complete', Component: CompletePage },
-    // { path: 'detail', Component: DetailPage, title: '상세페이지' },
->>>>>>> feature/mypage-profile
+
     { path: 'search', Component: SearchPage, showBottomTab: true },
     { path: 'list', Component: ListPage, showBottomTab: true },
     { path: 'user/my', Component: MyPage, title: '마이페이지', showBottomTab: true },
