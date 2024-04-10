@@ -1,17 +1,8 @@
 import { useState } from 'react';
 
 import Container from '@common/components/Container.tsx';
+import { initialProductForm } from '@common/constants';
 import { useProduct, useProductDetail, useProductRegister } from '@common/hooks/useProduct.ts';
-import { ProductForm } from '@common/types/products.ts';
-
-const initialForm: ProductForm = {
-    productName: '',
-    retailPrice: 0,
-    discountRate: 0,
-    quantity: 0,
-    thumbNails: [''],
-    category: '',
-};
 
 const ListPage = () => {
     // TODO: 상품 목록 조회 예시
@@ -23,7 +14,7 @@ const ListPage = () => {
     // TODO: 상품 등록 기능 예시
     const productMutation = useProductRegister();
 
-    const [form] = useState(initialForm);
+    const [form] = useState(initialProductForm);
 
     console.log(Products, ProductDetail);
 
