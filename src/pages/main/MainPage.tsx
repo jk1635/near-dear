@@ -1,7 +1,8 @@
 import Container from '@common/components/Container.tsx';
-import List from './List';
+
 import Banner from './Banner';
 import BestList from './BestList';
+import List from './List';
 
 const MainPage = () => {
     return (

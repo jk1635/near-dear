@@ -1,10 +1,12 @@
-import React from 'react';
-
 import styled from '@emotion/styled';
 
 import { UserInformation } from './UserData';
 
-const ProfileImg = ({ size }: any) => {
+interface ProfileImgProps {
+    size: number;
+}
+
+const ProfileImg = ({ size }: ProfileImgProps) => {
     return (
         <ProfileImgContainer>
             {UserInformation.img.length === 0 ? (

@@ -1,9 +1,6 @@
-import React from 'react';
-
 import styled from '@emotion/styled';
 
 import ProfileImg from './ProfileImg';
-
 import { UserInformation } from './UserData';
 
 const UserCard = () => {

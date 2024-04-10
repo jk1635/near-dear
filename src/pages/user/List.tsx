@@ -1,16 +1,14 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import styled from '@emotion/styled';
 // import Button from '@/common/components/Button';
 
-import { UserInformation } from './UserData';
-
 import { ReservationData } from './ReservationData';
-import { OutgoingMessage } from 'http';
+import { UserInformation } from './UserData';
 
 const List = () => {
     const [isActive, setIsActive] = useState(false);
-    const [categoryState, setCategoryState] = useState('예약' || '구매내역');
+    // const [categoryState, setCategoryState] = useState('예약' || '구매내역');
 
     const UserMenu = ['구매내역', '좋아요'];
     const SellerMenu = ['예약', '완료', '내상품'];
@@ -36,7 +34,8 @@ const List = () => {
     //     }
     // };
 
-    const activeHandler = (itm: any, idx: number) => {
+    const activeHandler = (itm: string, idx: number) => {
+        console.log(itm, idx);
         setIsActive(isActive);
     };
 

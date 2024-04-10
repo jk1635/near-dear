@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+
 import styled from '@emotion/styled';
-import { SelectedList } from './SelectedList';
+
 import Button from '@/common/components/Button';
+
+import { SelectedList } from './SelectedList';
 
 const List = () => {
     const category = ['상품', '당일예약', '클래스'];
