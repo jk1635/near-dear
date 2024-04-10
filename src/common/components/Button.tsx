@@ -43,6 +43,7 @@ const variantStyles = ({ variant, theme }: VariantStyles) => {
             return css`
                 background-color: transparent;
                 color: ${theme.colors.gray};
+                ${theme.typography.button};
             `;
         default:
             return css`

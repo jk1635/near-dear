@@ -11,8 +11,10 @@ import { useSignUp, usePartnerSignUp } from '@common/hooks/useUser.ts';
 
 const SignUpPage = () => {
     const { type } = useParams();
+
     const userMutation = useSignUp();
     const partnerMutation = usePartnerSignUp();
+
     const [form] = useState(initialSignUpForm);
     const [partnerForm] = useState(initialPartnerSignUpForm);
 

@@ -1,15 +1,19 @@
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 import Button from '@common/components/Button.tsx';
 import Container from '@common/components/Container.tsx';
 import FixedBottom from '@common/components/FixedBottom.tsx';
 import Input from '@common/components/Input.tsx';
+import { initialLoginForm } from '@common/constants';
+import { useLogin } from '@common/hooks/useUser.ts';
 
 const LoginPage = () => {
-    const navigate = useNavigate();
+    const [loginForm] = useState(initialLoginForm);
+
+    const loginMutation = useLogin();
 
     const handleLogin = () => {
-        navigate('/main');
+        loginMutation.mutate(loginForm);
     };
 
     return (
