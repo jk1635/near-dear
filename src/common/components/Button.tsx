@@ -51,6 +51,7 @@ const variantStyles = ({ variant, theme }: VariantStyles) => {
                 color: ${theme.colors.black};
                 height: 3.5rem;
                 ${theme.typography.button};
+                border-radius: 0.75rem;
             `;
     }
 };
@@ -61,7 +62,6 @@ const ButtonWrapper = styled.button<ButtonProps>`
     align-items: center;
     width: ${({ fullWidth }) => (fullWidth ? '100%' : 'auto')};
     border: 0;
-    border-radius: 0.75rem;
     cursor: pointer;
     text-decoration: none;
     ${variantStyles};

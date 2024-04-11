@@ -9,7 +9,6 @@ import { SelectedList } from './SelectedList';
 const List = () => {
     const category = ['상품', '당일예약', '클래스'];
     const [categoryState, setCategoryState] = useState('상품');
-    // const [clicked, setClicked] = useState(false);
 
     const categoryOnClick = (itm: string) => {
         if (itm === '상품') {

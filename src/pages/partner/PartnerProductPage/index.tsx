@@ -1,8 +1,9 @@
 import Container from '@common/components/Container.tsx';
 import FixedBottom from '@common/components/FixedBottom.tsx';
 
-const PartnerAddProductPage = () => {
+const PartnerProductPage = () => {
     const handleProductSave = () => {};
+
     return (
         <Container>
             <h1>PartnerAddProductPage</h1>
@@ -11,4 +12,4 @@ const PartnerAddProductPage = () => {
     );
 };
 
-export default PartnerAddProductPage;
+export default PartnerProductPage;

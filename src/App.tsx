@@ -14,7 +14,7 @@ import theme from '@common/styles/theme';
 
 import { GlobalPortal } from '@/GlobalPortal';
 
-const NotFoundPage = lazy(() => import('@pages/NotFoundPage'));
+const NotFoundPage = lazy(() => import('@pages/error/NotFoundPage.tsx'));
 
 function App() {
     return (

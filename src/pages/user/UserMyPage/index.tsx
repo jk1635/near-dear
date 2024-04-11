@@ -4,7 +4,6 @@ import List from './List';
 import UserCard from './UserCard';
 
 const MyPage = () => {
-    // const userTaye = useRecoilState(userTypeState);
     return (
         <Container>
             <UserCard />

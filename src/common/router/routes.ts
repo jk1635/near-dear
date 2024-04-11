@@ -9,40 +9,45 @@ interface RouteConfig {
 }
 
 const MainPage = lazy(() => import('@pages/main/MainPage'));
-const IntroPage = lazy(() => import('@pages/auth/IntroPage'));
+const IntroPage = lazy(() => import('@pages/main/IntroPage'));
+const SearchPage = lazy(() => import('@pages/main/SearchPage'));
+const ListPage = lazy(() => import('@pages/main/ListPage'));
+const DetailPage = lazy(() => import('@pages/main/DetailPage'));
+
 const LoginPage = lazy(() => import('@pages/auth/LoginPage'));
-const UserTypePage = lazy(() => import('@pages/auth/UserTypePage'));
+const AccountTypePage = lazy(() => import('@pages/auth/AccountTypePage'));
 const SignUpPage = lazy(() => import('@pages/auth/SignUpPage'));
-const CompletePage = lazy(() => import('@pages/auth/CompletePage'));
-const SearchPage = lazy(() => import('@pages/SearchPage'));
-const ListPage = lazy(() => import('@pages/ListPage'));
-// const DetailPage = lazy(() => import('@pages/DetailPage'));
-const MyPage = lazy(() => import('@pages/user/MyPage'));
-const ProfileEditPage = lazy(() => import('@pages/user/ProfileEditPage'));
+const SignUpStatusPage = lazy(() => import('@pages/auth/SignUpStatusPage'));
+
+const MyPage = lazy(() => import('@pages/user/UserMyPage'));
+const UserProfilePage = lazy(() => import('@pages/user/UserProfilePage'));
+
 const PartnerMyPage = lazy(() => import('@pages/partner/PartnerMyPage'));
-const PartnerAddProductPage = lazy(() => import('@pages/partner/PartnerAddProductPage'));
-const PartnerEditProfilePage = lazy(() => import('@pages/partner/PartnerEditProfilePage'));
+const PartnerProductPage = lazy(() => import('@pages/partner/PartnerProductPage'));
+const PartnerProfilePage = lazy(() => import('@pages/partner/PartnerProfilePage'));
+
 const PaymentPage = lazy(() => import('@pages/payment/PaymentPage'));
-const AddCardPage = lazy(() => import('@pages/payment/AddCardPage'));
-const PaymentSuccessPage = lazy(() => import('@pages/payment/PaymentSuccessPage'));
+const PaymentCardPage = lazy(() => import('@pages/payment/PaymentCardPage'));
+const PaymentStatusPage = lazy(() => import('@pages/payment/PaymentStatusPage'));
 
 const RouteConfig: RouteConfig[] = [
     { path: '/', Component: IntroPage },
     { path: 'main', Component: MainPage, title: '메인', showBottomTab: true },
     { path: 'login', Component: LoginPage, title: '로그인' },
-    { path: 'userType', Component: UserTypePage, showBackButton: true },
-    { path: 'signUp/:type', Component: SignUpPage, title: '회원가입', showBackButton: true },
-    { path: 'complete/:type', Component: CompletePage },
+    { path: 'accountType', Component: AccountTypePage, showBackButton: true },
+    { path: 'signup/:type', Component: SignUpPage, title: '회원가입', showBackButton: true },
+    { path: 'complete/:type', Component: SignUpStatusPage },
+    { path: 'detail', Component: DetailPage, title: '상품 상세', showBackButton: true },
     { path: 'search', Component: SearchPage, showBottomTab: true },
     { path: 'list', Component: ListPage, showBottomTab: true },
     { path: 'user/my', Component: MyPage, title: '마이페이지', showBottomTab: true },
-    { path: 'user/editProfile', Component: ProfileEditPage, title: '프로필 수정', showBackButton: true },
+    { path: 'user/profile', Component: UserProfilePage, title: '프로필 수정', showBackButton: true },
     { path: 'partner/my', Component: PartnerMyPage, title: '마이페이지' },
-    { path: 'partner/addProduct', Component: PartnerAddProductPage, title: '상품 등록', showBackButton: true },
-    { path: 'partner/editProfile', Component: PartnerEditProfilePage, title: '상점 수정', showBackButton: true },
+    { path: 'partner/profile', Component: PartnerProfilePage, title: '상점 수정', showBackButton: true },
+    { path: 'partner/product', Component: PartnerProductPage, title: '상품 등록', showBackButton: true },
     { path: 'payment', Component: PaymentPage, title: '결제하기', showBackButton: true },
-    { path: 'payment/addCard', Component: AddCardPage, title: '카드 등록하기', showBackButton: true },
-    { path: 'payment/success', Component: PaymentSuccessPage },
+    { path: 'payment/card', Component: PaymentCardPage, title: '카드 등록하기', showBackButton: true },
+    { path: 'payment/status', Component: PaymentStatusPage },
 ];
 
 export default RouteConfig;

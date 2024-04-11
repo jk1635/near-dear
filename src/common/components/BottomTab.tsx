@@ -62,6 +62,7 @@ const BottomButton = styled.li`
     align-items: center;
     height: 100%;
     background-color: rgb(252, 252, 252);
+    cursor: pointer;
 `;
 
 export default BottomTab;

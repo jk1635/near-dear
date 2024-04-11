@@ -1,7 +1,7 @@
 import Container from '@common/components/Container.tsx';
 import FixedBottom from '@common/components/FixedBottom.tsx';
 
-const PaymentSuccessPage = () => {
+const PaymentStatusPage = () => {
     const handleConfirm = () => {};
 
     return (
@@ -12,4 +12,4 @@ const PaymentSuccessPage = () => {
     );
 };
 
-export default PaymentSuccessPage;
+export default PaymentStatusPage;

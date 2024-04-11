@@ -5,7 +5,7 @@ import Container from '@common/components/Container.tsx';
 import FixedBottom from '@common/components/FixedBottom.tsx';
 import Text from '@common/components/Text.tsx';
 
-const CompletePage = () => {
+const SignUpStatusPage = () => {
     const { type } = useParams();
     const navigate = useNavigate();
 
@@ -33,4 +33,4 @@ const CompletePage = () => {
     );
 };
 
-export default CompletePage;
+export default SignUpStatusPage;

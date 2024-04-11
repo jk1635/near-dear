@@ -5,7 +5,7 @@ import Container from '@common/components/Container.tsx';
 import FixedBottom from '@common/components/FixedBottom.tsx';
 import Input from '@common/components/Input.tsx';
 
-const AddCardPage = () => {
+const PaymentCardPage = () => {
     const handleCardSave = () => {};
 
     return (
@@ -29,4 +29,4 @@ const ValidWrapper = styled.div`
     gap: 1rem;
 `;
 
-export default AddCardPage;
+export default PaymentCardPage;
