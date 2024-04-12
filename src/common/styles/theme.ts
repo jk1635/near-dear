@@ -3,9 +3,9 @@ const theme = {
         primary: '#FFE3D9',
         primary2: '#F5CED6',
         black: '#141618',
-        white: '#ffffff',
+        white: '#FFFFFF',
         gray: '#8F8C8B',
-        light_gray: 'l#DED9D7',
+        light_gray: '#DED9D7',
         err: '#CC0000',
     },
     typography: {
