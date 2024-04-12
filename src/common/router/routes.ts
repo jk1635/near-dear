@@ -8,11 +8,11 @@ interface RouteConfig {
     showBottomTab?: boolean;
 }
 
-const MainPage = lazy(() => import('@pages/main/MainPage'));
-const IntroPage = lazy(() => import('@pages/main/IntroPage'));
-const SearchPage = lazy(() => import('@pages/main/SearchPage'));
-const ListPage = lazy(() => import('@pages/main/ListPage'));
-const DetailPage = lazy(() => import('@pages/main/DetailPage'));
+const MainPage = lazy(() => import('@pages/common/MainPage'));
+const IntroPage = lazy(() => import('@pages/common/IntroPage'));
+const SearchPage = lazy(() => import('@pages/common/SearchPage'));
+const ListPage = lazy(() => import('@pages/common/ListPage'));
+const DetailPage = lazy(() => import('@pages/common/DetailPage'));
 
 const LoginPage = lazy(() => import('@pages/auth/LoginPage'));
 const AccountTypePage = lazy(() => import('@pages/auth/AccountTypePage'));

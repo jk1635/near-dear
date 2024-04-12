@@ -17,7 +17,7 @@ const IntroPage = () => {
     };
 
     const signUp = () => {
-        navigate('/userType');
+        navigate('/accountType');
     };
 
     return (
