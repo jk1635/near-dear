@@ -7,18 +7,18 @@ import Button from '@common/components/Button.tsx';
 import FixedBottom from '@common/components/FixedBottom.tsx';
 import FormWrapper from '@common/components/FormWrapper.tsx';
 import Input from '@common/components/Input.tsx';
-import { initialSignUpForm } from '@common/constants';
-import { useSignUp } from '@common/hooks/useUser.ts';
-import { SignUpForm } from '@common/types/user.ts';
-import { userSchema } from '@common/utils/validation.ts';
+import { initialPartnerSignUpForm } from '@common/constants';
+import { usePartnerSignUp } from '@common/hooks/useUser.ts';
+import { PartnerSignUpForm } from '@common/types/user.ts';
+import { partnerSchema } from '@common/utils/validation.ts';
 
-const UserForm = () => {
-    const userMutation = useSignUp();
+const PartnerForm = () => {
+    const partnerMutation = usePartnerSignUp();
 
-    const auth = useForm<SignUpForm>({
-        defaultValues: initialSignUpForm,
+    const partnerAuth = useForm<PartnerSignUpForm>({
+        defaultValues: initialPartnerSignUpForm,
         mode: 'onChange',
-        resolver: yupResolver(userSchema),
+        resolver: yupResolver(partnerSchema),
     });
 
     const {
@@ -26,15 +26,15 @@ const UserForm = () => {
         handleSubmit,
         formState: { errors },
         setValue,
-    } = auth;
+    } = partnerAuth;
 
     const phoneNumber = useWatch({
-        control: auth.control,
+        control: partnerAuth.control,
         name: 'phoneNumber',
     });
 
-    const onSubmit: SubmitHandler<SignUpForm> = data => {
-        userMutation.mutate(data);
+    const onSubmit: SubmitHandler<PartnerSignUpForm> = data => {
+        partnerMutation.mutate(data);
     };
 
     useEffect(() => {
@@ -48,7 +48,7 @@ const UserForm = () => {
 
     return (
         <>
-            <FormWrapper formHooks={auth} onSubmit={onSubmit}>
+            <FormWrapper formHooks={partnerAuth} onSubmit={onSubmit}>
                 <>
                     <Input label="이메일" type="email" {...register('email')} error={errors.email?.message} />
                     <Input
@@ -63,13 +63,16 @@ const UserForm = () => {
                         error={errors.passwordConfirm?.message}
                         {...register('passwordConfirm')}
                     />
-                    <Input label="닉네임" type="text" error={errors.nickname?.message} {...register('nickname')} />
                     <Input
                         label="휴대폰 번호"
                         type="tel"
                         error={errors.phoneNumber?.message}
                         {...register('phoneNumber')}
                     />
+                    <Input label="상점 이름" type="text" error={errors.merchantName?.message} />
+                    <Input label="상점 주소" type="text" error={errors.merchantAddress?.message} />
+                    <Input label="사업자 등록 번호" type="text" error={errors.businessNumber?.message} />
+                    <Input label="상점 연락처" type="text" error={errors.businessContactNumber?.message} />
                 </>
             </FormWrapper>
             <FixedBottom>
@@ -79,4 +82,4 @@ const UserForm = () => {
     );
 };
 
-export default UserForm;
+export default PartnerForm;
