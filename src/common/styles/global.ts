@@ -4,8 +4,6 @@ const global = css`
     :root {
         --min-width: 320px;
         --max-width: 768px;
-        line-height: 1.5;
-        font-weight: 400;
     }
 
     * {
@@ -19,6 +17,9 @@ const global = css`
     body {
         font-family: Arial, sans-serif;
         overflow-x: hidden;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.4;
     }
 
     html,
