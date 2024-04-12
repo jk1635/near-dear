@@ -1,9 +1,12 @@
 const theme = {
     colors: {
-        primary: '#fef3d3',
+        primary: '#FFE3D9',
+        primary2: '#F5CED6',
         black: '#141618',
         white: '#ffffff',
-        gray: '#c2cfd9',
+        gray: '#8F8C8B',
+        light_gray: 'l#DED9D7',
+        err: '#CC0000',
     },
     typography: {
         title1: { fontSize: '2rem', fontWeight: 700, lineHeight: '1.5' },
