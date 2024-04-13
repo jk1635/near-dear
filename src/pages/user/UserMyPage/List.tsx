@@ -100,7 +100,6 @@ const ListItem = styled.div`
     border: 1px solid gray;
     min-height: 180px;
     padding: 10px 10px;
-    box-sizing: border-box;
     gap: 10px;
 `;
 const Content = styled.div`
@@ -111,7 +110,6 @@ const Content = styled.div`
 
 const DDay = styled.div`
     padding: 3px 3px;
-    box-sizing: border-box;
     background-color: rgb(252, 252, 252);
     border-radius: 5px;
 `;
@@ -124,7 +122,6 @@ const ImportantMsg = styled.div`
 
 const Menu = styled.div<{ active: boolean }>`
     padding: 10px 10px;
-    box-sizing: border-box;
     background-color: rgb(252, 252, 252);
     font-weight: ${props => (props.active ? 700 : 500)};
 `;
@@ -163,7 +160,6 @@ const Button = styled.div`
     border-radius: 5px;
     border: 1px solid black;
     padding: 10px 10px;
-    box-sizing: border-box;
     font-weight: 600;
 `;
 
