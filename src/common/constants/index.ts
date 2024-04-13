@@ -16,6 +16,7 @@ const initialPartnerSignUpForm: PartnerSignUpForm = {
     passwordConfirm: '',
     phoneNumber: '',
     merchantName: '',
+    merchantAddress: '',
     businessNumber: '',
     businessContactNumber: '',
 };
@@ -36,4 +37,25 @@ const initialLoginForm: LoginForm = {
     password: '',
 };
 
-export { initialPartnerSignUpForm, initialSignUpForm, initialProductForm, initialLoginForm };
+// 서울 이외의 지역번호
+const areaCode = [
+    '031',
+    '032',
+    '033',
+    '041',
+    '042',
+    '043',
+    '044',
+    '051',
+    '052',
+    '053',
+    '054',
+    '055',
+    '061',
+    '062',
+    '063',
+    '064',
+    '065',
+];
+
+export { initialPartnerSignUpForm, initialSignUpForm, initialProductForm, initialLoginForm, areaCode };

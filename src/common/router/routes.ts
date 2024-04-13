@@ -33,7 +33,7 @@ const PaymentStatusPage = lazy(() => import('@pages/payment/PaymentStatusPage'))
 const RouteConfig: RouteConfig[] = [
     { path: '/', Component: IntroPage },
     { path: 'main', Component: MainPage, title: '메인', showBottomTab: true },
-    { path: 'login', Component: LoginPage, title: '로그인' },
+    { path: 'login', Component: LoginPage, title: '로그인', showBackButton: true },
     { path: 'accountType', Component: AccountTypePage, showBackButton: true },
     { path: 'signup/:type', Component: SignUpPage, title: '회원가입', showBackButton: true },
     { path: 'complete/:type', Component: SignUpStatusPage },

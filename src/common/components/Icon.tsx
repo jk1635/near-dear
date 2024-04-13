@@ -7,22 +7,29 @@ interface IconProps {
     bold?: boolean;
     color?: string;
     children: ReactNode;
+    onClick?: () => void;
+    cursor?: boolean;
 }
 
-const Icon = ({ size, bold, color, children }: IconProps) => {
+const Icon = ({ size, bold, color, children, onClick, cursor }: IconProps) => {
     return (
-        <IconWrapper color={color}>
-            <span
-                style={{ fontSize: `${size}rem`, verticalAlign: 'bottom', fontWeight: `${bold ? 'bold' : '400'}` }}
-                className="material-symbols-outlined"
-            >
-                {children}
-            </span>
+        <IconWrapper
+            color={color}
+            style={{
+                fontSize: `${size}rem`,
+                verticalAlign: 'bottom',
+                fontWeight: `${bold ? 'bold' : '400'}`,
+                cursor: `${cursor ? 'pointer' : 'default'}`,
+            }}
+            className="material-symbols-outlined"
+            onClick={onClick}
+        >
+            {children}
         </IconWrapper>
     );
 };
 
-const IconWrapper = styled.div<{ color?: string; animate?: boolean }>`
+const IconWrapper = styled.span<{ color?: string; cursor?: boolean }>`
     color: ${({ color, theme }) => (color ? color : theme.colors.black)};
 `;
 
