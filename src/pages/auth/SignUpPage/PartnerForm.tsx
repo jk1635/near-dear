@@ -1,5 +1,3 @@
-import { useEffect } from 'react';
-
 import { yupResolver } from '@hookform/resolvers/yup';
 import { SubmitHandler, useForm, useWatch } from 'react-hook-form';
 
@@ -8,6 +6,7 @@ import FixedBottom from '@common/components/FixedBottom.tsx';
 import FormWrapper from '@common/components/FormWrapper.tsx';
 import Input from '@common/components/Input.tsx';
 import { initialPartnerSignUpForm } from '@common/constants';
+import useFormatPhoneNumber from '@common/hooks/useFormatPhoneNumber.ts';
 import { usePartnerSignUp } from '@common/hooks/useUser.ts';
 import { PartnerSignUpForm } from '@common/types/user.ts';
 import { partnerSchema } from '@common/utils/validation.ts';
@@ -28,29 +27,37 @@ const PartnerForm = () => {
         setValue,
     } = partnerAuth;
 
+    const onSubmit: SubmitHandler<PartnerSignUpForm> = data => {
+        partnerMutation.mutate(data);
+    };
+
     const phoneNumber = useWatch({
         control: partnerAuth.control,
         name: 'phoneNumber',
     });
 
-    const onSubmit: SubmitHandler<PartnerSignUpForm> = data => {
-        partnerMutation.mutate(data);
-    };
+    const businessContactNumber = useWatch({
+        control: partnerAuth.control,
+        name: 'businessContactNumber',
+    });
 
-    useEffect(() => {
-        const value = phoneNumber.replace(/\D/g, '').slice(0, 11);
-        const formattedValue = [value.slice(0, 3), value.slice(3, 7), value.slice(7)]
-            .filter(part => part !== '')
-            .join('-');
+    useFormatPhoneNumber({
+        phoneNumber: phoneNumber,
+        setValue: setValue,
+        fieldName: 'phoneNumber',
+    });
 
-        setValue('phoneNumber', formattedValue);
-    }, [phoneNumber, setValue]);
+    useFormatPhoneNumber({
+        phoneNumber: businessContactNumber,
+        setValue: setValue,
+        fieldName: 'businessContactNumber',
+    });
 
     return (
         <>
             <FormWrapper formHooks={partnerAuth} onSubmit={onSubmit}>
                 <>
-                    <Input label="이메일" type="email" {...register('email')} error={errors.email?.message} />
+                    <Input label="이메일" type="email" error={errors.email?.message} {...register('email')} />
                     <Input
                         label="패스워드"
                         type="password"
@@ -69,10 +76,30 @@ const PartnerForm = () => {
                         error={errors.phoneNumber?.message}
                         {...register('phoneNumber')}
                     />
-                    <Input label="상점 이름" type="text" error={errors.merchantName?.message} />
-                    <Input label="상점 주소" type="text" error={errors.merchantAddress?.message} />
-                    <Input label="사업자 등록 번호" type="text" error={errors.businessNumber?.message} />
-                    <Input label="상점 연락처" type="text" error={errors.businessContactNumber?.message} />
+                    <Input
+                        label="상점 이름"
+                        type="text"
+                        error={errors.merchantName?.message}
+                        {...register('merchantName')}
+                    />
+                    <Input
+                        label="상점 주소"
+                        type="text"
+                        error={errors.merchantAddress?.message}
+                        {...register('merchantAddress')}
+                    />
+                    <Input
+                        label="사업자 등록 번호"
+                        type="text"
+                        error={errors.businessNumber?.message}
+                        {...register('businessNumber')}
+                    />
+                    <Input
+                        label="상점 연락처"
+                        type="tel"
+                        error={errors.businessContactNumber?.message}
+                        {...register('businessContactNumber')}
+                    />
                 </>
             </FormWrapper>
             <FixedBottom>
