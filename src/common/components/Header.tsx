@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 
 import styled from '@emotion/styled';
 
+import Icon from '@common/components/Icon.tsx';
+
 interface HeaderProps {
     title?: string;
     showBackButton?: boolean;
@@ -18,9 +20,9 @@ const Header = ({ title, rightItems, showBackButton = false }: HeaderProps) => {
     return (
         <HeaderContainer>
             {showBackButton && (
-                <span className="material-symbols-outlined" onClick={handleBack}>
+                <Icon onClick={handleBack} cursor>
                     arrow_back_ios
-                </span>
+                </Icon>
             )}
             <div>
                 <h1>{title}</h1>
@@ -43,7 +45,7 @@ const HeaderContainer = styled.header`
     min-width: var(--min-width);
     max-width: var(--max-width);
     padding: 0 1.5rem;
-    background-color: rgb(252, 252, 252);
+    background-color: ${({ theme }) => theme.colors.white};
     transform: translateX(-50%);
 `;
 
