@@ -24,7 +24,7 @@ const IntroPage = () => {
         <Container>
             <TitleWrapper>
                 <Logo>NEAR</Logo>
-                <Text variant="t1">특별한 하루를 선물하세요.</Text>
+                <Text variant="title2">특별한 하루를 선물하세요.</Text>
             </TitleWrapper>
             <FixedBottom>
                 <Button onClick={googleLogin}>Google로 시작하기</Button>

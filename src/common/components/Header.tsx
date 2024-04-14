@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import styled from '@emotion/styled';
 
 import Icon from '@common/components/Icon.tsx';
+import Text from '@common/components/Text.tsx';
 
 interface HeaderProps {
     title?: string;
@@ -32,7 +33,7 @@ const Header = ({ title, showBackButton = false, showLogo = false, showRightItem
                     </HeaderIconBox>
                 )}
                 <div>
-                    <h1>{title}</h1>
+                    <Text variant="large_text">{title}</Text>
                 </div>
             </LeftItems>
             <RightItems>

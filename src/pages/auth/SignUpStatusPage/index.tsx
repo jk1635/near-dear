@@ -23,7 +23,7 @@ const SignUpStatusPage = () => {
             {type === 'partner' && (
                 <>
                     <Text>회원가입이 완료되었습니다.</Text>
-                    <Text variant="t4">승인 완료 후 서비스를 이용할 수 있습니다.</Text>
+                    <Text variant="normal_text">승인 완료 후 서비스를 이용할 수 있습니다.</Text>
                 </>
             )}
             <FixedBottom>
