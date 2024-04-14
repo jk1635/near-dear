@@ -1,5 +1,3 @@
-import { useEffect } from 'react';
-
 import { yupResolver } from '@hookform/resolvers/yup';
 import { SubmitHandler, useForm, useWatch } from 'react-hook-form';
 
@@ -8,6 +6,7 @@ import FixedBottom from '@common/components/FixedBottom.tsx';
 import FormWrapper from '@common/components/FormWrapper.tsx';
 import Input from '@common/components/Input.tsx';
 import { initialSignUpForm } from '@common/constants';
+import useFormatPhoneNumber from '@common/hooks/useFormatPhoneNumber.ts';
 import { useSignUp } from '@common/hooks/useUser.ts';
 import { SignUpForm } from '@common/types/user.ts';
 import { userSchema } from '@common/utils/validation.ts';
@@ -22,43 +21,41 @@ const UserForm = () => {
     });
 
     const {
+        control,
         register,
         handleSubmit,
         formState: { errors },
         setValue,
     } = auth;
 
-    const phoneNumber = useWatch({
-        control: auth.control,
-        name: 'phoneNumber',
-    });
-
     const onSubmit: SubmitHandler<SignUpForm> = data => {
         userMutation.mutate(data);
     };
 
-    useEffect(() => {
-        const value = phoneNumber.replace(/\D/g, '').slice(0, 11);
-        const formattedValue = [value.slice(0, 3), value.slice(3, 7), value.slice(7)]
-            .filter(part => part !== '')
-            .join('-');
+    const phoneNumber = useWatch({
+        control: control,
+        name: 'phoneNumber',
+    });
 
-        setValue('phoneNumber', formattedValue);
-    }, [phoneNumber, setValue]);
+    useFormatPhoneNumber({
+        phoneNumber: phoneNumber,
+        setValue: setValue,
+        fieldName: 'phoneNumber',
+    });
 
     return (
         <>
             <FormWrapper formHooks={auth} onSubmit={onSubmit}>
                 <>
-                    <Input label="이메일" type="email" {...register('email')} error={errors.email?.message} />
+                    <Input label="이메일" type="email" error={errors.email?.message} {...register('email')} />
                     <Input
-                        label="패스워드"
+                        label="비밀번호"
                         type="password"
                         error={errors.password?.message}
                         {...register('password')}
                     />
                     <Input
-                        label="패스워드 확인"
+                        label="비밀번호 확인"
                         type="password"
                         error={errors.passwordConfirm?.message}
                         {...register('passwordConfirm')}

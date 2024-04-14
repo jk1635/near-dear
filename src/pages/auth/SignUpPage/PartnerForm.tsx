@@ -21,6 +21,7 @@ const PartnerForm = () => {
     });
 
     const {
+        control,
         register,
         handleSubmit,
         formState: { errors },
@@ -32,12 +33,12 @@ const PartnerForm = () => {
     };
 
     const phoneNumber = useWatch({
-        control: partnerAuth.control,
+        control: control,
         name: 'phoneNumber',
     });
 
     const businessContactNumber = useWatch({
-        control: partnerAuth.control,
+        control: control,
         name: 'businessContactNumber',
     });
 
@@ -59,13 +60,13 @@ const PartnerForm = () => {
                 <>
                     <Input label="이메일" type="email" error={errors.email?.message} {...register('email')} />
                     <Input
-                        label="패스워드"
+                        label="비밀번호"
                         type="password"
                         error={errors.password?.message}
                         {...register('password')}
                     />
                     <Input
-                        label="패스워드 확인"
+                        label="비밀번호 확인"
                         type="password"
                         error={errors.passwordConfirm?.message}
                         {...register('passwordConfirm')}

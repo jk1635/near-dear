@@ -1,17 +1,20 @@
 import { useEffect } from 'react';
 
-import { UseFormSetValue } from 'react-hook-form';
+import { FieldValues, Path, PathValue, UseFormSetValue } from 'react-hook-form';
 
 import { areaCode } from '@common/constants';
-import { PartnerSignUpForm } from '@common/types/user.ts';
 
-interface UseFormatPhoneNumberProps {
+interface UseFormatPhoneNumberProps<T extends FieldValues> {
     phoneNumber: string;
-    setValue: UseFormSetValue<PartnerSignUpForm>;
-    fieldName: 'phoneNumber' | 'businessContactNumber';
+    setValue: UseFormSetValue<T>;
+    fieldName: Path<T>;
 }
 
-const useFormatPhoneNumber = ({ phoneNumber, setValue, fieldName }: UseFormatPhoneNumberProps) => {
+function useFormatPhoneNumber<T extends FieldValues>({
+    phoneNumber,
+    setValue,
+    fieldName,
+}: UseFormatPhoneNumberProps<T>) {
     useEffect(() => {
         const value = phoneNumber.replace(/\D/g, '').slice(0, 11);
         let formattedValue = '';
@@ -54,8 +57,8 @@ const useFormatPhoneNumber = ({ phoneNumber, setValue, fieldName }: UseFormatPho
             formattedValue = value;
         }
 
-        setValue(fieldName, formattedValue);
+        setValue(fieldName, formattedValue as PathValue<T, Path<T>>);
     }, [phoneNumber, setValue, fieldName]);
-};
+}
 
 export default useFormatPhoneNumber;
