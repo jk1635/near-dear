@@ -80,7 +80,9 @@ const List = () => {
                         {/* <Button onClick={() => setDone(!done)} done={done}>
                             완료 처리하기
                         </Button> */}
-                        <Button done={reservationItm.complete}>완료 처리하기</Button>
+                        <Button done={reservationItm.complete}>
+                            {reservationItm.complete ? '완료 처리하기' : '작업 완료'}
+                        </Button>
                     </ListItem>
                 ))}
             </ReservationList>
@@ -114,7 +116,7 @@ const Content = styled.div`
 
 const DDay = styled.div`
     padding: 3px 3px;
-    background-color: rgb(252, 252, 252);
+    border: 1px solid ${({ theme }) => theme.colors.light_gray};
     border-radius: 5px;
 `;
 const Type = styled(DDay)``;
@@ -165,7 +167,7 @@ const Button = styled.div<{ done: boolean }>`
     border: 1px solid ${props => (props.done ? props.theme.colors.light_gray : props.theme.colors.light_gray)};
     padding: 10px 10px;
     font-weight: 600;
-    background-color: ${props => (props.done ? props.theme.colors.white : props.theme.colors.light_gray)};
+    background-color: ${props => (props.done ? props.theme.colors.white : props.theme.colors.primary)};
 `;
 
 export default List;
