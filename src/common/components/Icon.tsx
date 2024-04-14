@@ -3,24 +3,23 @@ import { ReactNode } from 'react';
 import styled from '@emotion/styled';
 
 interface IconProps {
+    children: ReactNode;
+    onClick?: () => void;
     size?: number;
     bold?: boolean;
     color?: string;
-    children: ReactNode;
-    onClick?: () => void;
     cursor?: boolean;
 }
 
-const Icon = ({ size, bold, color, children, onClick, cursor }: IconProps) => {
+const Icon = ({ size, bold, color, cursor, children, onClick }: IconProps) => {
     return (
         <IconWrapper
-            color={color}
             style={{
-                fontSize: `${size}rem`,
-                verticalAlign: 'bottom',
-                fontWeight: `${bold ? 'bold' : '400'}`,
                 cursor: `${cursor ? 'pointer' : 'default'}`,
             }}
+            color={color}
+            size={size}
+            bold={bold}
             className="material-symbols-outlined"
             onClick={onClick}
         >
@@ -29,8 +28,11 @@ const Icon = ({ size, bold, color, children, onClick, cursor }: IconProps) => {
     );
 };
 
-const IconWrapper = styled.span<{ color?: string; cursor?: boolean }>`
+const IconWrapper = styled.span<{ size?: number; bold?: boolean; color?: string; cursor?: boolean }>`
+    ${({ size }) => size && `font-size: ${size}rem;`};
+    ${({ bold }) => `font-weight: ${bold ? 'bold' : '400'};`}
     color: ${({ color, theme }) => (color ? color : theme.colors.black)};
+    vertical-align: bottom;
 `;
 
 export default Icon;

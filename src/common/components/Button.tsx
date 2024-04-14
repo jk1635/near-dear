@@ -3,6 +3,8 @@ import { forwardRef, ReactNode, ButtonHTMLAttributes } from 'react';
 import { css, Theme } from '@emotion/react';
 import styled from '@emotion/styled';
 
+import Text from '@common/components/Text.tsx';
+
 type ButtonVariant = 'basic' | 'gray' | 'outline' | 'disabled';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -20,7 +22,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     ({ fullWidth = true, variant = 'basic', children, ...rest }, ref) => {
         return (
             <ButtonWrapper fullWidth={fullWidth} ref={ref} variant={variant} {...rest}>
-                <span>{children}</span>
+                <Text variant="button">{children}</Text>
             </ButtonWrapper>
         );
     }
@@ -38,6 +40,7 @@ const variantStyles = ({ variant, theme }: VariantStyles) => {
                 margin-bottom: 1rem;
                 padding: 1.5rem;
                 border: 1px solid ${theme.colors.gray};
+                border-radius: 0.75rem;
             `;
         case 'gray':
             return css`

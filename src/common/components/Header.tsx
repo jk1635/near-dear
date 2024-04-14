@@ -22,14 +22,16 @@ const Header = ({ title, showBackButton = false, showLogo = false, showRightItem
             <LeftItems>
                 {showBackButton && (
                     <HeaderIconBox>
-                        <Icon size={1.5} onClick={handleBack} cursor>
+                        <Icon size={1.25} onClick={handleBack} cursor>
                             arrow_back_ios
                         </Icon>
                     </HeaderIconBox>
                 )}
                 {showLogo && (
                     <HeaderIconBox>
-                        <Icon size={1.5}>deceased</Icon>
+                        <Icon size={1.5} cursor>
+                            deceased
+                        </Icon>
                     </HeaderIconBox>
                 )}
                 <div>
@@ -40,10 +42,14 @@ const Header = ({ title, showBackButton = false, showLogo = false, showRightItem
                 {showRightItems && (
                     <>
                         <HeaderIconBox>
-                            <Icon size={1.5}>check_box_outline_blank</Icon>
+                            <Icon size={1.5} cursor>
+                                check_box_outline_blank
+                            </Icon>
                         </HeaderIconBox>
                         <HeaderIconBox>
-                            <Icon size={1.5}>check_box_outline_blank</Icon>
+                            <Icon size={1.5} cursor>
+                                check_box_outline_blank
+                            </Icon>
                         </HeaderIconBox>
                     </>
                 )}
