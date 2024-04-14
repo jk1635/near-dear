@@ -12,6 +12,7 @@ const List = () => {
 
     const UserMenu = ['구매내역', '좋아요'];
     const SellerMenu = ['예약', '완료', '내상품'];
+    const [done, setDone] = useState(false);
 
     // const categoryOnClick = itm => {
     //     if (UserInformation.userType === 'user') {
@@ -76,7 +77,9 @@ const List = () => {
                                 <Count>{reservationItm.request}</Count>
                             </Information>
                         </Content>
-                        <Button>완료 처리하기</Button>
+                        <Button onClick={() => setDone(!done)} done={done}>
+                            완료 처리하기
+                        </Button>
                     </ListItem>
                 ))}
             </ReservationList>
@@ -97,7 +100,7 @@ const ListItem = styled.div`
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    border: 1px solid gray;
+    border: 1px solid ${({ theme }) => theme.colors.light_gray};
     min-height: 180px;
     padding: 10px 10px;
     gap: 10px;
@@ -148,17 +151,17 @@ const Product = styled.div`
 `;
 const Name = styled.div``;
 const Time = styled.div`
-    color: #ff0000;
+    color: ${({ theme }) => theme.colors.err};
 `;
 const Count = styled.div``;
 
-const Button = styled.div`
+const Button = styled.div<{ done: boolean }>`
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 5px;
-    border: 1px solid black;
+    border: 1px solid ${({ theme }) => theme.colors.black};
     padding: 10px 10px;
     font-weight: 600;
 `;
