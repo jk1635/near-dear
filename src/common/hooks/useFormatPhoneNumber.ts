@@ -10,11 +10,11 @@ interface UseFormatPhoneNumberProps<T extends FieldValues> {
     fieldName: Path<T>;
 }
 
-function useFormatPhoneNumber<T extends FieldValues>({
+const useFormatPhoneNumber = <T extends FieldValues>({
     phoneNumber,
     setValue,
     fieldName,
-}: UseFormatPhoneNumberProps<T>) {
+}: UseFormatPhoneNumberProps<T>) => {
     useEffect(() => {
         const value = phoneNumber.replace(/\D/g, '').slice(0, 11);
         let formattedValue = '';
@@ -59,6 +59,6 @@ function useFormatPhoneNumber<T extends FieldValues>({
 
         setValue(fieldName, formattedValue as PathValue<T, Path<T>>);
     }, [phoneNumber, setValue, fieldName]);
-}
+};
 
 export default useFormatPhoneNumber;
