@@ -47,4 +47,12 @@ const partnerSchema = yup.object().shape({
     businessContactNumber: yup.string().required('상점 연락처를 입력해주세요.'),
 });
 
-export { userSchema, partnerSchema };
+const cardValidationSchema = yup.object({
+    cardType: yup.string().required('카드 타입을 선택해주세요.'),
+    cardNumber: yup.string().required('카드 번호를 입력해주세요.').max(16, '카드 번호는 최대 16자리입니다.'),
+    validDate: yup.string().required('유효기간을 입력해주세요.').max(4, '유효기간은 4자리로 입력해주세요.'),
+    cardPassword: yup.string().required('카드 비밀번호를 입력해주세요.').max(4, '카드 비밀번호는 4자리입니다.'),
+    birthDate: yup.string().required('생년월일 6자리를 입력해주세요.').max(6, '생년월일은 6자리로 입력해주세요.'),
+});
+
+export { userSchema, partnerSchema, cardValidationSchema };
