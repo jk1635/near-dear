@@ -39,10 +39,10 @@ const Header = ({ title, showBackButton = false, showLogo = false, showRightItem
                 {showRightItems && (
                     <>
                         <HeaderIconBox>
-                            <Icon size={1.5}>shopping_cart</Icon>
+                            <Icon size={1.5}>check_box_outline_blank</Icon>
                         </HeaderIconBox>
                         <HeaderIconBox>
-                            <Icon size={1.5}>notifications</Icon>
+                            <Icon size={1.5}>check_box_outline_blank</Icon>
                         </HeaderIconBox>
                     </>
                 )}
