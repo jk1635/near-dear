@@ -77,9 +77,10 @@ const List = () => {
                                 <Count>{reservationItm.request}</Count>
                             </Information>
                         </Content>
-                        <Button onClick={() => setDone(!done)} done={done}>
+                        {/* <Button onClick={() => setDone(!done)} done={done}>
                             완료 처리하기
-                        </Button>
+                        </Button> */}
+                        <Button done={reservationItm.complete}>완료 처리하기</Button>
                     </ListItem>
                 ))}
             </ReservationList>
@@ -161,9 +162,10 @@ const Button = styled.div<{ done: boolean }>`
     justify-content: center;
     align-items: center;
     border-radius: 5px;
-    border: 1px solid ${({ theme }) => theme.colors.black};
+    border: 1px solid ${props => (props.done ? props.theme.colors.light_gray : props.theme.colors.light_gray)};
     padding: 10px 10px;
     font-weight: 600;
+    background-color: ${props => (props.done ? props.theme.colors.white : props.theme.colors.light_gray)};
 `;
 
 export default List;
