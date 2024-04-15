@@ -11,6 +11,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: ReactNode;
     variant?: ButtonVariant;
     fullWidth?: boolean;
+    disabled?: boolean;
 }
 
 type VariantStyles = {
@@ -19,9 +20,9 @@ type VariantStyles = {
 };
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-    ({ fullWidth = true, variant = 'basic', children, ...rest }, ref) => {
+    ({ fullWidth = true, variant = 'basic', children, disabled, ...rest }, ref) => {
         return (
-            <ButtonWrapper fullWidth={fullWidth} ref={ref} variant={variant} {...rest}>
+            <ButtonWrapper fullWidth={fullWidth} ref={ref} variant={variant} disabled={disabled} {...rest}>
                 <Text variant="button">{children}</Text>
             </ButtonWrapper>
         );
@@ -65,8 +66,9 @@ const ButtonWrapper = styled.button<ButtonProps>`
     align-items: center;
     width: ${({ fullWidth }) => (fullWidth ? '100%' : 'auto')};
     border: 0;
-    cursor: pointer;
     text-decoration: none;
+    cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
+    opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
     ${variantStyles};
 `;
 
