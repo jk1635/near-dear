@@ -1,15 +1,12 @@
 import Container from '@common/components/Container.tsx';
-
-import Banner from './Banner';
-import BestList from './BestList';
-import List from './List';
+import Text from '@common/components/Text.tsx';
 
 const MainPage = () => {
     return (
         <Container>
-            <Banner />
-            <List />
-            <BestList />
+            <Text variant="title2" isCentered>
+                Main Page
+            </Text>
         </Container>
     );
 };
