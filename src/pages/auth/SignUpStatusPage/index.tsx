@@ -18,12 +18,18 @@ const SignUpStatusPage = () => {
     };
 
     return (
-        <Container isCentered={true}>
-            {type === 'user' && <Text>회원가입이 완료되었습니다.</Text>}
+        <Container isCentered>
+            {type === 'user' && (
+                <Text variant="title2" isCentered>
+                    회원가입이 완료되었습니다.
+                </Text>
+            )}
             {type === 'partner' && (
                 <>
-                    <Text>회원가입이 완료되었습니다.</Text>
-                    <Text variant="t4">승인 완료 후 서비스를 이용할 수 있습니다.</Text>
+                    <Text variant="title2" isCentered>
+                        회원가입이 완료되었습니다.
+                    </Text>
+                    <Text>승인 완료 후 서비스를 이용할 수 있습니다.</Text>
                 </>
             )}
             <FixedBottom>

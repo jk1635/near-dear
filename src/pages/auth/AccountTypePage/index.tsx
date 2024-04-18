@@ -9,7 +9,7 @@ const AccountTypePage = () => {
     const navigate = useNavigate();
 
     return (
-        <Container isCentered={true}>
+        <Container isCentered>
             <AccountTypeWrapper>
                 <Button
                     onClick={() => {

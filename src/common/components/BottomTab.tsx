@@ -14,23 +14,31 @@ const BottomTab = ({ showBottomTab = false }: BottomTabProps) => {
         navigate(path);
     };
     // TODO: 유저/파트너 타입 추가
-    const userType = 'user';
+    const accountType = 'user';
 
     return (
         <>
             {showBottomTab && (
                 <BottomContainer>
-                    <BottomButton onClick={() => onMovePage('/main')}>
-                        <Icon>home</Icon>
+                    <BottomButton>
+                        <Icon onClick={() => onMovePage('/main')} cursor>
+                            home
+                        </Icon>
                     </BottomButton>
-                    <BottomButton onClick={() => onMovePage('/search')}>
-                        <Icon>search</Icon>
+                    <BottomButton>
+                        <Icon onClick={() => onMovePage('/search')} cursor>
+                            search
+                        </Icon>
                     </BottomButton>
-                    <BottomButton onClick={() => onMovePage('/list')}>
-                        <Icon>list</Icon>
+                    <BottomButton>
+                        <Icon onClick={() => onMovePage('/list')} cursor>
+                            list
+                        </Icon>
                     </BottomButton>
-                    <BottomButton onClick={() => onMovePage(`/${userType}/my`)}>
-                        <Icon>person</Icon>
+                    <BottomButton>
+                        <Icon onClick={() => onMovePage(`/${accountType}/my`)} cursor>
+                            person
+                        </Icon>
                     </BottomButton>
                 </BottomContainer>
             )}
@@ -61,8 +69,7 @@ const BottomButton = styled.li`
     justify-content: center;
     align-items: center;
     height: 100%;
-    background-color: rgb(252, 252, 252);
-    cursor: pointer;
+    background-color: ${({ theme }) => theme.colors.white};
 `;
 
 export default BottomTab;

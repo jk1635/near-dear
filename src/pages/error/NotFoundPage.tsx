@@ -14,8 +14,10 @@ const NotFoundPage = () => {
     };
 
     return (
-        <Container isCentered={true}>
-            <Text>페이지를 찾을 수 없습니다.</Text>
+        <Container isCentered>
+            <Text variant="title2" isCentered>
+                페이지를 찾을 수 없습니다.
+            </Text>
             <FixedBottom>
                 <Button onClick={handleConfirm}>홈으로 가기</Button>
             </FixedBottom>

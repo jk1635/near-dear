@@ -6,7 +6,13 @@ const getLayoutItems = (path: string) => {
     const route = RouteConfig.find(route => route.path === path);
 
     if (route) {
-        return { title: route.title, showBackButton: route.showBackButton, showBottomTab: route.showBottomTab };
+        return {
+            title: route.title,
+            showBackButton: route.showBackButton,
+            showBottomTab: route.showBottomTab,
+            showLogo: route.showLogo,
+            showRightItems: route.showRightItems,
+        };
     }
 
     return { title: '', showBackButton: false };

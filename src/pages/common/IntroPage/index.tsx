@@ -23,8 +23,12 @@ const IntroPage = () => {
     return (
         <Container>
             <TitleWrapper>
-                <Logo>NEAR</Logo>
-                <Text variant="t1">특별한 하루를 선물하세요.</Text>
+                <Text variant="title1" isCentered>
+                    NEAR
+                </Text>
+                <Text variant="title2" isCentered>
+                    특별한 하루를 선물하세요.
+                </Text>
             </TitleWrapper>
             <FixedBottom>
                 <Button onClick={googleLogin}>Google로 시작하기</Button>
@@ -39,14 +43,6 @@ const IntroPage = () => {
 
 const TitleWrapper = styled.div`
     margin-top: 7.5rem;
-`;
-
-const Logo = styled.h1`
-    display: flex;
-    justify-content: center;
-    margin-bottom: 2.5rem;
-    font-size: 2rem;
-    font-weight: 700;
 `;
 
 export default IntroPage;
