@@ -12,7 +12,9 @@ const List = () => {
 
     const UserMenu = ['구매내역', '좋아요'];
     const SellerMenu = ['예약', '완료', '내상품'];
-    const [done, setDone] = useState(false);
+    // const [done, setDone] = useState(false);
+
+    const doneOnClick = () => {};
 
     // const categoryOnClick = itm => {
     //     if (UserInformation.userType === 'user') {
@@ -80,7 +82,7 @@ const List = () => {
                         {/* <Button onClick={() => setDone(!done)} done={done}>
                             완료 처리하기
                         </Button> */}
-                        <Button done={reservationItm.complete}>
+                        <Button done={reservationItm.complete} onClick={doneOnClick}>
                             {reservationItm.complete ? '완료 처리하기' : '작업 완료'}
                         </Button>
                     </ListItem>
@@ -159,6 +161,7 @@ const Time = styled.div`
 const Count = styled.div``;
 
 const Button = styled.div<{ done: boolean }>`
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     justify-content: center;
