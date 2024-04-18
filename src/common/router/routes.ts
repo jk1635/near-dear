@@ -6,6 +6,8 @@ interface RouteConfig {
     title?: string;
     showBackButton?: boolean;
     showBottomTab?: boolean;
+    showLogo?: boolean;
+    showRightItems?: boolean;
 }
 
 const MainPage = lazy(() => import('@pages/common/MainPage'));
@@ -32,19 +34,31 @@ const PaymentStatusPage = lazy(() => import('@pages/payment/PaymentStatusPage'))
 
 const RouteConfig: RouteConfig[] = [
     { path: '/', Component: IntroPage },
-    { path: 'main', Component: MainPage, title: '메인', showBottomTab: true },
-    { path: 'login', Component: LoginPage, title: '로그인' },
+    { path: 'main', Component: MainPage, showBottomTab: true, showLogo: true, showRightItems: true },
+    { path: 'login', Component: LoginPage, title: '로그인', showBackButton: true },
     { path: 'accountType', Component: AccountTypePage, showBackButton: true },
     { path: 'signup/:type', Component: SignUpPage, title: '회원가입', showBackButton: true },
     { path: 'complete/:type', Component: SignUpStatusPage },
     { path: 'detail', Component: DetailPage, title: '상품 상세', showBackButton: true },
-    { path: 'search', Component: SearchPage, showBottomTab: true },
-    { path: 'list', Component: ListPage, showBottomTab: true },
-    { path: 'user/my', Component: MyPage, title: '마이페이지', showBottomTab: true },
+    { path: 'search', Component: SearchPage, showBottomTab: true, showLogo: true, showRightItems: true },
+    { path: 'list', Component: ListPage, showBottomTab: true, showLogo: true, showRightItems: true },
+    { path: 'user/my', Component: MyPage, title: '마이페이지', showBottomTab: true, showRightItems: true },
     { path: 'user/profile', Component: UserProfilePage, title: '프로필 수정', showBackButton: true },
-    { path: 'partner/my', Component: PartnerMyPage, title: '마이페이지' },
-    { path: 'partner/profile', Component: PartnerProfilePage, title: '상점 수정', showBackButton: true },
-    { path: 'partner/product', Component: PartnerProductPage, title: '상품 등록', showBackButton: true },
+    { path: 'partner/my', Component: PartnerMyPage, title: '마이페이지', showRightItems: true },
+    {
+        path: 'partner/profile',
+        Component: PartnerProfilePage,
+        title: '상점 수정',
+        showBackButton: true,
+        showRightItems: true,
+    },
+    {
+        path: 'partner/product',
+        Component: PartnerProductPage,
+        title: '상품 등록',
+        showBackButton: true,
+        showRightItems: true,
+    },
     { path: 'payment', Component: PaymentPage, title: '결제하기', showBackButton: true },
     { path: 'payment/card', Component: PaymentCardPage, title: '카드 등록하기', showBackButton: true },
     { path: 'payment/status', Component: PaymentStatusPage },

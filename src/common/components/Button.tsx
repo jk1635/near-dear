@@ -3,12 +3,15 @@ import { forwardRef, ReactNode, ButtonHTMLAttributes } from 'react';
 import { css, Theme } from '@emotion/react';
 import styled from '@emotion/styled';
 
+import Text from '@common/components/Text.tsx';
+
 type ButtonVariant = 'basic' | 'gray' | 'outline' | 'disabled';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: ReactNode;
     variant?: ButtonVariant;
     fullWidth?: boolean;
+    disabled?: boolean;
 }
 
 type VariantStyles = {
@@ -17,10 +20,10 @@ type VariantStyles = {
 };
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-    ({ fullWidth = true, variant = 'basic', children, ...rest }, ref) => {
+    ({ fullWidth = true, variant = 'basic', children, disabled, ...rest }, ref) => {
         return (
-            <ButtonWrapper fullWidth={fullWidth} ref={ref} variant={variant} {...rest}>
-                <span>{children}</span>
+            <ButtonWrapper fullWidth={fullWidth} ref={ref} variant={variant} disabled={disabled} {...rest}>
+                <Text variant="button">{children}</Text>
             </ButtonWrapper>
         );
     }
@@ -38,6 +41,7 @@ const variantStyles = ({ variant, theme }: VariantStyles) => {
                 margin-bottom: 1rem;
                 padding: 1.5rem;
                 border: 1px solid ${theme.colors.gray};
+                border-radius: 0.75rem;
             `;
         case 'gray':
             return css`
@@ -62,8 +66,9 @@ const ButtonWrapper = styled.button<ButtonProps>`
     align-items: center;
     width: ${({ fullWidth }) => (fullWidth ? '100%' : 'auto')};
     border: 0;
-    cursor: pointer;
     text-decoration: none;
+    cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
+    opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
     ${variantStyles};
 `;
 

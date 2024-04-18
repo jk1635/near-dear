@@ -12,6 +12,7 @@ interface PartnerSignUpForm {
     passwordConfirm: string;
     phoneNumber: string;
     merchantName: string;
+    merchantAddress: string;
     businessNumber: string;
     businessContactNumber: string;
 }
