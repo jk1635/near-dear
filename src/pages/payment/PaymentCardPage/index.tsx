@@ -1,5 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 
 import styled from '@emotion/styled';
 
@@ -20,6 +21,8 @@ const cardOptions: Array<Option> = [
 ];
 
 const PaymentCardPage = () => {
+    const navigate = useNavigate();
+
     // TODO: api 추가 후 주석 해제
     // const cardMutation = useCardRegister();
 
@@ -39,6 +42,7 @@ const PaymentCardPage = () => {
     const onSubmit: SubmitHandler<CardRegisterForm> = data => {
         // TODO: api 추가 후 콘솔로그 삭제
         console.log(data);
+        navigate('/payment', { replace: true });
         // cardMutation.mutate(data);
     };
 
