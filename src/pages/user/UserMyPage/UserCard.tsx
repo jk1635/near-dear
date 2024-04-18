@@ -31,7 +31,6 @@ const Information = styled.div`
 
 const Partner = styled.div`
     padding: 5px 5px;
-    box-sizing: border-box;
     font-weight: 600;
     background-color: rgb(252, 252, 252);
 `;

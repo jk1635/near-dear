@@ -66,7 +66,6 @@ const Menu = styled.div`
 `;
 const MenuItem = styled.div`
     padding: 15px;
-    box-sizing: border-box;
 `;
 
 const SelectedList_CSS = styled.div`
@@ -75,7 +74,6 @@ const SelectedList_CSS = styled.div`
 `;
 const ListItem = styled.div`
     padding: 15px;
-    box-sizing: border-box;
     height: 120px;
     border: 1px solid lightgray;
     margin-bottom: 10px;

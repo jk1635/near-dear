@@ -6,7 +6,7 @@ export const ReservationData = [
         time: '2024/04/27 PM 2:00',
         count: 1,
         price: '50,000원',
-        complete: 'yes',
+        complete: false,
         request:
             '예쁘게 만들어주세요~~~~~~ 최대한 예쁘게 예쁘게 예쁘게 핑크빛 위주로 만들어주세요.예쁘게 만들어주세요~~~~~~ ',
     },
@@ -17,7 +17,7 @@ export const ReservationData = [
         time: '2024/04/27 PM 2:00',
         count: 1,
         price: '50,000원',
-        complete: 'yes',
+        complete: true,
         request: '',
     },
     {
@@ -27,7 +27,7 @@ export const ReservationData = [
         time: '2024/04/27 PM 2:00',
         count: 1,
         price: '50,000원',
-        complete: 'yes',
+        complete: false,
         request: '',
     },
     {
@@ -37,7 +37,7 @@ export const ReservationData = [
         time: '2024/04/27 PM 2:00',
         count: 1,
         price: '50,000원',
-        complete: 'yes',
+        complete: false,
         request: '',
     },
     {
@@ -47,7 +47,7 @@ export const ReservationData = [
         time: '2024/04/27 PM 2:00',
         count: 1,
         price: '50,000원',
-        complete: 'yes',
+        complete: true,
         request: '',
     },
     {
@@ -57,7 +57,7 @@ export const ReservationData = [
         time: '2024/04/27 PM 2:00',
         count: 1,
         price: '50,000원',
-        complete: 'yes',
+        complete: true,
         request: '',
     },
     {
@@ -67,7 +67,7 @@ export const ReservationData = [
         time: '2024/04/27 PM 2:00',
         count: 1,
         price: '50,000원',
-        complete: 'yes',
+        complete: false,
         request: '',
     },
     {
@@ -77,7 +77,7 @@ export const ReservationData = [
         time: '2024/04/27 PM 2:00',
         count: 1,
         price: '50,000원',
-        complete: 'yes',
+        complete: false,
         request: '',
     },
 ];

@@ -12,6 +12,9 @@ const List = () => {
 
     const UserMenu = ['구매내역', '좋아요'];
     const SellerMenu = ['예약', '완료', '내상품'];
+    // const [done, setDone] = useState(false);
+
+    const doneOnClick = () => {};
 
     // const categoryOnClick = itm => {
     //     if (UserInformation.userType === 'user') {
@@ -76,7 +79,12 @@ const List = () => {
                                 <Count>{reservationItm.request}</Count>
                             </Information>
                         </Content>
-                        <Button>완료 처리하기</Button>
+                        {/* <Button onClick={() => setDone(!done)} done={done}>
+                            완료 처리하기
+                        </Button> */}
+                        <Button done={reservationItm.complete} onClick={doneOnClick}>
+                            {reservationItm.complete ? '완료 처리하기' : '작업 완료'}
+                        </Button>
                     </ListItem>
                 ))}
             </ReservationList>
@@ -97,10 +105,9 @@ const ListItem = styled.div`
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    border: 1px solid gray;
+    border: 1px solid ${({ theme }) => theme.colors.light_gray};
     min-height: 180px;
     padding: 10px 10px;
-    box-sizing: border-box;
     gap: 10px;
 `;
 const Content = styled.div`
@@ -111,8 +118,7 @@ const Content = styled.div`
 
 const DDay = styled.div`
     padding: 3px 3px;
-    box-sizing: border-box;
-    background-color: rgb(252, 252, 252);
+    border: 1px solid ${({ theme }) => theme.colors.light_gray};
     border-radius: 5px;
 `;
 const Type = styled(DDay)``;
@@ -124,7 +130,6 @@ const ImportantMsg = styled.div`
 
 const Menu = styled.div<{ active: boolean }>`
     padding: 10px 10px;
-    box-sizing: border-box;
     background-color: rgb(252, 252, 252);
     font-weight: ${props => (props.active ? 700 : 500)};
 `;
@@ -151,20 +156,21 @@ const Product = styled.div`
 `;
 const Name = styled.div``;
 const Time = styled.div`
-    color: #ff0000;
+    color: ${({ theme }) => theme.colors.err};
 `;
 const Count = styled.div``;
 
-const Button = styled.div`
+const Button = styled.div<{ done: boolean }>`
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 5px;
-    border: 1px solid black;
+    border: 1px solid ${props => (props.done ? props.theme.colors.light_gray : props.theme.colors.light_gray)};
     padding: 10px 10px;
-    box-sizing: border-box;
     font-weight: 600;
+    background-color: ${props => (props.done ? props.theme.colors.white : props.theme.colors.primary)};
 `;
 
 export default List;

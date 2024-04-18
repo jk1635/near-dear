@@ -34,7 +34,6 @@ const Scroll = styled.div`
     margin-top: 10px;
     white-space: nowrap;
     overflow: auto;
-    /* -webkit-overflow-scrolling: touch; */
     -ms-overflow-style: none;
 `;
 
