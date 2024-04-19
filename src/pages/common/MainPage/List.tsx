@@ -36,11 +36,13 @@ const List = () => {
                               return (
                                   <ListItem>
                                       <Img></Img>
-                                      <Name>{itm.name}</Name>
-                                      <Price>{itm.discount}</Price>
-                                      <Location>
-                                          {itm.location} {itm.store}
-                                      </Location>
+                                      <Content>
+                                          <Name>{itm.name}</Name>
+                                          <Price>{itm.discount}</Price>
+                                          <Location>
+                                              {itm.location} {itm.store}
+                                          </Location>
+                                      </Content>
                                   </ListItem>
                               );
                       })
@@ -68,20 +70,31 @@ const MenuItem = styled.div`
     padding: 15px;
 `;
 
+const Content = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    justify-content: center;
+`;
+
 const SelectedList_CSS = styled.div`
     display: flex;
     flex-direction: column;
 `;
 const ListItem = styled.div`
-    padding: 15px;
+    display: flex;
+    padding: 10px 10px;
     height: 120px;
     border: 1px solid lightgray;
     margin-bottom: 10px;
-    display: flex;
-    flex-direction: column;
+    gap: 15px;
 `;
 
-const Img = styled.img``;
+const Img = styled.div`
+    width: 100px;
+    height: 100%;
+    background-color: ${({ theme }) => theme.colors.primary};
+`;
 
 const Price = styled.div``;
 const Location = styled.div``;
