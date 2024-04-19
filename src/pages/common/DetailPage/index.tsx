@@ -1,10 +1,11 @@
 import SliderImg from '@/common/components/Carousel/SliderImg';
+import Container from '@/common/components/Container';
 
 const DetailPage = () => {
     return (
-        <div>
+        <Container>
             <SliderImg />
-        </div>
+        </Container>
     );
 };
 
