@@ -156,7 +156,7 @@ const Product = styled.div`
 `;
 const Name = styled.div``;
 const Time = styled.div`
-    color: ${({ theme }) => theme.colors.err};
+    color: ${({ theme }) => theme.colors.gray};
 `;
 const Count = styled.div``;
 

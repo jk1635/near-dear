@@ -13,7 +13,7 @@ import Flower3 from '../../../../public/Img/3.jpg';
 
 const SliderImg = () => {
     return (
-        <Swiper css={ContainerStyles}>
+        <Swiper css={ContainerStyles} spaceBetween={5} rewind={true}>
             <SwiperSlide>
                 <ImgItem src={Flower1} />
             </SwiperSlide>
