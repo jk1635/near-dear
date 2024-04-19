@@ -45,7 +45,7 @@ const List = () => {
                                       </Content>
                                   </ListItem>
                               );
-                      })
+                      }).slice(0, 6)
                     : ''}
                 {categoryState === '당일예약'
                     ? SelectedList.map(itm => {
