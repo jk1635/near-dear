@@ -125,7 +125,9 @@ const Price = styled.div`
     ${({ theme }) => theme.typography.title3}
 `;
 const Location = styled.div`
-    ${({ theme }) => theme.typography.small_text}
+    ${({ theme }) => theme.typography.small_text};
+    color: ${({ theme }) => theme.colors.gray};
+    font-weight: 550;
 `;
 const Name = styled.div`
     ${({ theme }) => theme.typography.title2}

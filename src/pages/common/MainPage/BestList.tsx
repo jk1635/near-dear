@@ -1,18 +1,20 @@
 import styled from '@emotion/styled';
 
-import { BestListData } from './BestListData';
+import { SelectedList } from './SelectedList';
 
 const BestList = () => {
     return (
         <Container>
             <Title>구매율 best</Title>
             <Scroll>
-                {BestListData.map(itm => (
+                {SelectedList.map(itm => (
                     <BestItem>
                         <Img />
-                        <Name> {itm.이름}</Name>
-                        <Location> {itm.지역}</Location>
-                        <Price> {itm.가격}원</Price>
+                        <Name> {itm.name}</Name>
+                        <Location>
+                            {itm.location} / {itm.store}
+                        </Location>
+                        <Price> {itm.price}원</Price>
                     </BestItem>
                 ))}
             </Scroll>
@@ -42,7 +44,7 @@ const Scroll = styled.div`
 const Img = styled.img`
     width: 150px;
     height: 150px;
-    background-color: #faf0e6;
+    background-color: ${({ theme }) => theme.colors.primary};
     min-width: 150px;
     min-height: 150px;
 `;
@@ -51,10 +53,17 @@ const BestItem = styled.div`
     display: flex;
     flex-direction: column;
     min-width: 150px;
-    gap: 10px;
+    gap: 3px;
 `;
 
-const Name = styled.div``;
-const Location = styled.div``;
+const Name = styled.div`
+    margin-top: 5px;
+    ${({ theme }) => theme.typography.title2}
+`;
+const Location = styled.div`
+    ${({ theme }) => theme.typography.small_text};
+    color: ${({ theme }) => theme.colors.gray};
+    font-weight: 550;
+`;
 const Price = styled.div``;
 export default BestList;
