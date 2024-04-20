@@ -8,7 +8,9 @@ const Search = () => {
     const [keyword, setKeyword] = useState('');
     const [keywords, setKeywords] = useState([]);
 
-    useEffect(() => {}, []);
+    useEffect(() => {
+        localStorage.setItem('keywords', JSON.stringify(keywords));
+    }, [keywords]);
 
     const onSearch = e => {
         if (e.key === 'Enter') {
@@ -16,8 +18,6 @@ const Search = () => {
             setKeywords([currentValue, ...keywords]);
         }
     };
-
-    console.log('keywords', keywords);
 
     return (
         <>
