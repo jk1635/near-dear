@@ -27,7 +27,7 @@ export const SelectedList = [
         price: '30000',
         discount: '15000',
         당일예약가능여부: true,
-        상점이름: '레아꽃집',
+        store: '레아꽃집',
     },
     {
         img: '',

@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import { useNavigate } from 'react-router-dom';
+
 import styled from '@emotion/styled';
 
 import Button from '@common/components/Button';
@@ -9,6 +11,7 @@ import { SelectedList } from './SelectedList';
 const List = () => {
     const category = ['상품', '당일예약', '클래스'];
     const [categoryState, setCategoryState] = useState('상품');
+    const navigate = useNavigate();
 
     const categoryOnClick = (itm: string) => {
         if (itm === '상품') {
@@ -21,6 +24,8 @@ const List = () => {
             setCategoryState('클래스');
         }
     };
+
+    const toLocal = toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
 
     return (
         <>
@@ -41,7 +46,12 @@ const List = () => {
                                           <Location>
                                               {itm.location} / {itm.store}
                                           </Location>
-                                          <Price>{itm.discount}원</Price>
+                                          <Price>
+                                              {parseInt(itm.discount)
+                                                  .toString()
+                                                  .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}
+                                              원 <VAT>VAT포함</VAT>
+                                          </Price>
                                       </Content>
                                   </ListItem>
                               );
@@ -59,7 +69,12 @@ const List = () => {
                                           <Location>
                                               {itm.location} / {itm.store}
                                           </Location>
-                                          <Price>{itm.discount}원</Price>
+                                          <Price>
+                                              {parseInt(itm.discount)
+                                                  .toString()
+                                                  .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}
+                                              원 <VAT>VAT포함</VAT>
+                                          </Price>
                                       </Content>
                                   </ListItem>
                               );
@@ -76,14 +91,21 @@ const List = () => {
                                           <Location>
                                               {itm.location} / {itm.store}
                                           </Location>
-                                          <Price>{itm.discount}원</Price>
+                                          <Price>
+                                              {parseInt(itm.discount)
+                                                  .toString()
+                                                  .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}
+                                              원 <VAT>VAT포함</VAT>
+                                          </Price>
                                       </Content>
                                   </ListItem>
                               );
                       }).slice(0, 6)
                     : ''}
             </SelectedList_CSS>
-            <Button>전체보기</Button>
+            <Button variant="outline" onClick={() => navigate('/list')}>
+                전체보기
+            </Button>
         </>
     );
 };
@@ -93,6 +115,12 @@ const Menu = styled.div`
 `;
 const MenuItem = styled.div`
     padding: 15px;
+`;
+
+const VAT = styled.div`
+    margin-left: 10px;
+    font-size: 0.8rem;
+    color: #bead9c;
 `;
 
 const Content = styled.div`
@@ -122,10 +150,14 @@ const Img = styled.div`
 `;
 
 const Price = styled.div`
-    ${({ theme }) => theme.typography.title3}
+    display: flex;
+    align-items: center;
+    ${({ theme }) => theme.typography.title3};
 `;
 const Location = styled.div`
-    ${({ theme }) => theme.typography.small_text}
+    ${({ theme }) => theme.typography.small_text};
+    color: ${({ theme }) => theme.colors.gray};
+    font-weight: 550;
 `;
 const Name = styled.div`
     ${({ theme }) => theme.typography.title2}

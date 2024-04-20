@@ -39,7 +39,7 @@ const variantStyles = ({ variant, theme }: VariantStyles) => {
         case 'outline':
             return css`
                 margin-bottom: 1rem;
-                padding: 1.5rem;
+                padding: 1.1rem;
                 border: 1px solid ${theme.colors.gray};
                 border-radius: 0.75rem;
             `;
