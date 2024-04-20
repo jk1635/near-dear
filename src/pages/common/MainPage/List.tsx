@@ -38,10 +38,10 @@ const List = () => {
                                       <Img></Img>
                                       <Content>
                                           <Name>{itm.name}</Name>
-                                          <Price>{itm.discount}</Price>
                                           <Location>
-                                              {itm.location} {itm.store}
+                                              {itm.location} / {itm.store}
                                           </Location>
+                                          <Price>{itm.discount}원</Price>
                                       </Content>
                                   </ListItem>
                               );
@@ -49,13 +49,38 @@ const List = () => {
                     : ''}
                 {categoryState === '당일예약'
                     ? SelectedList.map(itm => {
-                          if (itm.당일예약가능여부 === 'yes') return <ListItem>{itm.type}</ListItem>;
-                      })
+                          if (itm.당일예약가능여부)
+                              return (
+                                  <ListItem>
+                                      {' '}
+                                      <Img></Img>
+                                      <Content>
+                                          <Name>{itm.name}</Name>
+                                          <Location>
+                                              {itm.location} / {itm.store}
+                                          </Location>
+                                          <Price>{itm.discount}원</Price>
+                                      </Content>
+                                  </ListItem>
+                              );
+                      }).slice(0, 6)
                     : ''}
                 {categoryState === '클래스'
                     ? SelectedList.map(itm => {
-                          if (itm.type === '클래스') return <ListItem>{itm.type}</ListItem>;
-                      })
+                          if (itm.type === '클래스')
+                              return (
+                                  <ListItem>
+                                      <Img></Img>
+                                      <Content>
+                                          <Name>{itm.name}</Name>
+                                          <Location>
+                                              {itm.location} / {itm.store}
+                                          </Location>
+                                          <Price>{itm.discount}원</Price>
+                                      </Content>
+                                  </ListItem>
+                              );
+                      }).slice(0, 6)
                     : ''}
             </SelectedList_CSS>
             <Button>전체보기</Button>
@@ -96,7 +121,13 @@ const Img = styled.div`
     background-color: ${({ theme }) => theme.colors.primary};
 `;
 
-const Price = styled.div``;
-const Location = styled.div``;
-const Name = styled.div``;
+const Price = styled.div`
+    ${({ theme }) => theme.typography.title3}
+`;
+const Location = styled.div`
+    ${({ theme }) => theme.typography.small_text}
+`;
+const Name = styled.div`
+    ${({ theme }) => theme.typography.title2}
+`;
 export default List;
