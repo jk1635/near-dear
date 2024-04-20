@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import { useNavigate } from 'react-router-dom';
+
 import styled from '@emotion/styled';
 
 import Button from '@common/components/Button';
@@ -9,6 +11,7 @@ import { SelectedList } from './SelectedList';
 const List = () => {
     const category = ['상품', '당일예약', '클래스'];
     const [categoryState, setCategoryState] = useState('상품');
+    const navigate = useNavigate();
 
     const categoryOnClick = (itm: string) => {
         if (itm === '상품') {
@@ -100,7 +103,9 @@ const List = () => {
                       }).slice(0, 6)
                     : ''}
             </SelectedList_CSS>
-            <Button variant="outline">전체보기</Button>
+            <Button variant="outline" onClick={() => navigate('/list')}>
+                전체보기
+            </Button>
         </>
     );
 };
