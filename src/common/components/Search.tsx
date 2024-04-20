@@ -1,16 +1,27 @@
 import React, { useState } from 'react';
 
+import { useLocation } from 'react-router-dom';
+
 import styled from '@emotion/styled';
 
 const Search = () => {
+    const location = useLocation();
+    console.log('location', location.pathname);
     const [search, setSearch] = useState('');
     console.log('search', search);
     return (
-        <Container>
-            <SearchDiv>
-                <Input onChange={e => setSearch(e.target.value)} placeholder="지역, 상품, 매장명 검색" />
-            </SearchDiv>
-        </Container>
+        <>
+            {(location.pathname === '/main' || location.pathname === '/search') && (
+                <Container>
+                    <SearchDiv>
+                        <Input
+                            onChange={e => setSearch(e.target.value)}
+                            placeholder="지역, 상품, 매장명 검색해보세요"
+                        />
+                    </SearchDiv>
+                </Container>
+            )}
+        </>
     );
 };
 
@@ -35,6 +46,12 @@ const Input = styled.input`
     width: 100%;
     border: none;
     background-color: transparent;
+    &::placeholder {
+        display: flex;
+        align-items: center;
+        font-weight: 600;
+        color: ${({ theme }) => theme.colors.gray};
+    }
 `;
 
 export default Search;
