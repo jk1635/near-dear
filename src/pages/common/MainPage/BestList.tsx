@@ -28,7 +28,9 @@ const Container = styled.div`
     margin-top: 10px;
 `;
 
-const Title = styled.div``;
+const Title = styled.div`
+    ${({ theme }) => theme.typography.title2};
+`;
 const Scroll = styled.div`
     display: flex;
     margin-top: 10px;

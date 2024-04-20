@@ -83,7 +83,7 @@ const List = () => {
                       }).slice(0, 6)
                     : ''}
             </SelectedList_CSS>
-            <Button>전체보기</Button>
+            <Button variant="outline">전체보기</Button>
         </>
     );
 };
