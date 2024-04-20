@@ -14,7 +14,12 @@ const BestList = () => {
                         <Location>
                             {itm.location} / {itm.store}
                         </Location>
-                        <Price> {itm.price}원</Price>
+                        <Price>
+                            {parseInt(itm.discount)
+                                .toString()
+                                .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}
+                            원 <VAT>VAT포함</VAT>
+                        </Price>
                     </BestItem>
                 ))}
             </Scroll>
@@ -65,5 +70,16 @@ const Location = styled.div`
     color: ${({ theme }) => theme.colors.gray};
     font-weight: 550;
 `;
-const Price = styled.div``;
+const Price = styled.div`
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    ${({ theme }) => theme.typography.title3};
+`;
+
+const VAT = styled.div`
+    /* margin-left: 10px; */
+    font-size: 0.8rem;
+    color: #bead9c;
+`;
 export default BestList;

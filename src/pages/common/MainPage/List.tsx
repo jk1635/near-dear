@@ -22,6 +22,8 @@ const List = () => {
         }
     };
 
+    const toLocal = toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
+
     return (
         <>
             <Menu>
@@ -41,7 +43,12 @@ const List = () => {
                                           <Location>
                                               {itm.location} / {itm.store}
                                           </Location>
-                                          <Price>{itm.discount}원</Price>
+                                          <Price>
+                                              {parseInt(itm.discount)
+                                                  .toString()
+                                                  .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}
+                                              원 <VAT>VAT포함</VAT>
+                                          </Price>
                                       </Content>
                                   </ListItem>
                               );
@@ -59,7 +66,12 @@ const List = () => {
                                           <Location>
                                               {itm.location} / {itm.store}
                                           </Location>
-                                          <Price>{itm.discount}원</Price>
+                                          <Price>
+                                              {parseInt(itm.discount)
+                                                  .toString()
+                                                  .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}
+                                              원 <VAT>VAT포함</VAT>
+                                          </Price>
                                       </Content>
                                   </ListItem>
                               );
@@ -76,7 +88,12 @@ const List = () => {
                                           <Location>
                                               {itm.location} / {itm.store}
                                           </Location>
-                                          <Price>{itm.discount}원</Price>
+                                          <Price>
+                                              {parseInt(itm.discount)
+                                                  .toString()
+                                                  .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}
+                                              원 <VAT>VAT포함</VAT>
+                                          </Price>
                                       </Content>
                                   </ListItem>
                               );
@@ -93,6 +110,12 @@ const Menu = styled.div`
 `;
 const MenuItem = styled.div`
     padding: 15px;
+`;
+
+const VAT = styled.div`
+    margin-left: 10px;
+    font-size: 0.8rem;
+    color: #bead9c;
 `;
 
 const Content = styled.div`
@@ -122,7 +145,9 @@ const Img = styled.div`
 `;
 
 const Price = styled.div`
-    ${({ theme }) => theme.typography.title3}
+    display: flex;
+    align-items: center;
+    ${({ theme }) => theme.typography.title3};
 `;
 const Location = styled.div`
     ${({ theme }) => theme.typography.small_text};
