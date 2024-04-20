@@ -6,7 +6,7 @@ export const SelectedList = [
         location: '강남',
         price: '30000',
         discount: '15000',
-        당일예약가능여부: 'yes',
+        당일예약가능여부: true,
         store: '레아꽃집',
     },
     {
@@ -16,7 +16,7 @@ export const SelectedList = [
         location: '강남',
         price: '30000',
         discount: '15000',
-        당일예약가능여부: 'yes',
+        당일예약가능여부: true,
         store: '레아꽃집',
     },
     {
@@ -26,7 +26,7 @@ export const SelectedList = [
         location: '강남',
         price: '30000',
         discount: '15000',
-        당일예약가능여부: 'yes',
+        당일예약가능여부: true,
         상점이름: '레아꽃집',
     },
     {
@@ -36,7 +36,7 @@ export const SelectedList = [
         location: '강남',
         price: '30000',
         discount: '15000',
-        당일예약가능여부: 'no',
+        당일예약가능여부: false,
         store: '레아꽃집',
     },
     {
@@ -46,7 +46,7 @@ export const SelectedList = [
         location: '강남',
         price: '30000',
         discount: '15000',
-        당일예약가능여부: 'no',
+        당일예약가능여부: false,
         store: '레아꽃집',
     },
     {
@@ -56,7 +56,7 @@ export const SelectedList = [
         location: '강남',
         price: '30000',
         discount: '15000',
-        당일예약가능여부: 'yes',
+        당일예약가능여부: false,
         store: '레아꽃집',
     },
     {
@@ -66,7 +66,7 @@ export const SelectedList = [
         location: '강남',
         price: '30000',
         discount: '15000',
-        당일예약가능여부: 'yes',
+        당일예약가능여부: false,
         store: '레아꽃집',
     },
     {
@@ -76,7 +76,7 @@ export const SelectedList = [
         location: '강남',
         price: '30000',
         discount: '15000',
-        당일예약가능여부: 'no',
+        당일예약가능여부: false,
         store: '레아꽃집',
     },
     {
@@ -86,7 +86,7 @@ export const SelectedList = [
         location: '강남',
         price: '30000',
         discount: '15000',
-        당일예약가능여부: 'yes',
+        당일예약가능여부: true,
         store: '레아꽃집',
     },
     {
@@ -96,7 +96,27 @@ export const SelectedList = [
         location: '강남',
         price: '30000',
         discount: '15000',
-        당일예약가능여부: 'yes',
+        당일예약가능여부: true,
+        store: '레아꽃집',
+    },
+    {
+        img: '',
+        type: '클래스',
+        name: '꽃다발',
+        location: '강남',
+        price: '30000',
+        discount: '15000',
+        당일예약가능여부: true,
+        store: '레아꽃집',
+    },
+    {
+        img: '',
+        type: '클래스',
+        name: '꽃다발',
+        location: '강남',
+        price: '30000',
+        discount: '15000',
+        당일예약가능여부: true,
         store: '레아꽃집',
     },
 ];
