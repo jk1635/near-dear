@@ -1,21 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 import { useLocation } from 'react-router-dom';
 
 import styled from '@emotion/styled';
 
 const Search = () => {
-    const location = useLocation();
-    console.log('location', location.pathname);
-    const [search, setSearch] = useState('');
-    console.log('search', search);
+    const [keyword, setKeyword] = useState('');
+    const [keywords, setKeywords] = useState([]);
+
+    useEffect(() => {}, []);
+
+    const onSearch = e => {
+        if (e.key === 'Enter') {
+            const currentValue = e.target.value;
+            setKeywords([currentValue, ...keywords]);
+        }
+    };
+
+    console.log('keywords', keywords);
+
     return (
         <>
             {(location.pathname === '/main' || location.pathname === '/search') && (
                 <Container>
                     <SearchDiv>
                         <Input
-                            onChange={e => setSearch(e.target.value)}
+                            onKeyPress={onSearch}
+                            onChange={e => setKeyword(e.target.value)}
                             placeholder="지역, 상품, 매장명 검색해보세요"
                         />
                     </SearchDiv>
