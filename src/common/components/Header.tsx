@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 
 import Icon from '@common/components/Icon.tsx';
 import Text from '@common/components/Text.tsx';
+import Search from './Search';
 
 interface HeaderProps {
     title?: string;
@@ -38,6 +39,7 @@ const Header = ({ title, showBackButton = false, showLogo = false, showRightItem
                     <Text variant="large_text">{title}</Text>
                 </div>
             </LeftItems>
+            {showRightItems && <Search />}
             <RightItems>
                 {showRightItems && (
                     <>
@@ -73,6 +75,7 @@ const HeaderContainer = styled.header`
     padding: 0 1.5rem;
     background-color: ${({ theme }) => theme.colors.white};
     transform: translateX(-50%);
+    justify-content: space-between;
 `;
 
 const LeftItems = styled.div`
