@@ -9,7 +9,7 @@ const SearchPage = () => {
         <Container>
             <Content>
                 <Title>최근검색어</Title>
-                <SearchTags />
+                <SearchTags></SearchTags>
             </Content>
         </Container>
     );
