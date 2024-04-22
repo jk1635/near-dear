@@ -12,7 +12,7 @@ const Search = () => {
         localStorage.setItem('keywords', JSON.stringify(keywords));
     }, [keywords]);
 
-    const onSearch = e => {
+    const onSearch = (e: React.ChangeEventHandler<HTMLInputElement>) => {
         if (e.key === 'Enter') {
             const currentValue = e.target.value;
             setKeywords([currentValue, ...keywords]);
