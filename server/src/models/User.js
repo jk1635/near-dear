@@ -1,7 +1,7 @@
 const { default: mongoose } = require('mongoose');
 
 const userSchema = mongoose.Schema({
-  name: {
+  nickname: {
     type: String,
     maxLength: 50,
   },
@@ -14,12 +14,16 @@ const userSchema = mongoose.Schema({
     type: String,
     minLength: 5,
   },
-  role: {
+  passwordConfirm: {
+    type: String,
+    minLength: 5,
+  },
+  phoneNumber: {
     type: Number,
     default: 0,
   },
-  image: String,
 });
+
 
 const User = mongoose.model('User', userSchema);
 
