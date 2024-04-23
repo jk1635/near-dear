@@ -10,7 +10,6 @@ const useSignUp = () => {
 
     return useMutation({
         mutationFn: (signup: SignUpForm) => apiClient.post('/auth/signup', signup),
-        // mutationFn: (signup: SignUpForm) => apiClient.post('/users/register', signup),
         onSuccess: () => {
             navigate('/complete/user');
         },
