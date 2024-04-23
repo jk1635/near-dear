@@ -21,6 +21,14 @@ const userSchema = yup.object().shape({
         }),
 });
 
+// const userSchema = yup.object().shape({
+//     email: yup.string().email('유효한 이메일 주소를 입력해주세요.'),
+//     password: yup.string(),
+//     passwordConfirm: yup.string(),
+//     nickname: yup.string(),
+//     phoneNumber: yup.string(),
+// });
+
 const partnerSchema = yup.object().shape({
     email: yup.string().email('유효한 이메일 주소를 입력해주세요.').required('이메일을 입력해주세요.'),
     password: yup.string().required('비밀번호를 입력해주세요.').min(8, '비밀번호는 최소 8자 이상이어야 합니다.'),

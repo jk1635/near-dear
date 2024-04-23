@@ -19,15 +19,12 @@ mongoose
   .then(() => {
     console.log('MongoDB 연결 완료');
   })
-  .catch(err => {
-    console.error(err);
+  .catch(error => {
+    console.error(error);
   });
 
-app.get('/', (req, res,next) => {
-  setImmediate(() => {
-    next(new Error('It is an error'));
-  });
-  // res.send('Hello World');
+app.get('/', (req, res, next) => {
+  res.send('Hello World');
 });
 
 app.post('/', (req, res) => {
@@ -38,7 +35,7 @@ app.post('/', (req, res) => {
 app.use('/users', require('./routes/users'));
 
 app.use((error, req, res, next) => {
-  res.status(err.status || 500);
+  res.status(error.status || 500);
   res.send(error.message || 'Internal Server Error');
 })
 
