@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 
 import Icon from '@common/components/Icon.tsx';
 import Text from '@common/components/Text.tsx';
+
 import Search from './Search';
 
 interface HeaderProps {

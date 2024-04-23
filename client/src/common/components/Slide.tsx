@@ -1,8 +1,9 @@
 import React from 'react';
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-const SliderCard = () => {
+const Slide = () => {
     return <div></div>;
 };
 
-export default SliderCard;
+export default Slide;

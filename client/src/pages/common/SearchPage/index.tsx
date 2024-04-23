@@ -1,6 +1,6 @@
-import Container from '@common/components/Container.tsx';
-
 import styled from '@emotion/styled';
+
+import Container from '@common/components/Container.tsx';
 
 import SearchTags from './SearchTags';
 

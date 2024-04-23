@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
+
 import SliderImg from '@/common/components/Carousel/SliderImg';
 import Container from '@/common/components/Container';
+
 import { DetailData } from './detailData';
 
 const DetailPage = () => {
