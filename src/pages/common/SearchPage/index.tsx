@@ -11,6 +11,9 @@ const SearchPage = () => {
                 <Title>최근검색어</Title>
                 <SearchTags></SearchTags>
             </Content>
+            <Content>
+                <Title>인기검색어</Title>
+            </Content>
         </Container>
     );
 };
