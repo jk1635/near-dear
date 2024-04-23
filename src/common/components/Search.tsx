@@ -2,10 +2,13 @@ import React, { useState, useRef, useEffect } from 'react';
 
 import { useLocation } from 'react-router-dom';
 
+import { keywordState } from '../router/stores/atoms';
+import { useRecoilState } from 'recoil';
+
 import styled from '@emotion/styled';
 
 const Search = () => {
-    const [keyword, setKeyword] = useState('');
+    const [keyword, setKeyword] = useRecoilState(keywordState);
     const [keywords, setKeywords] = useState([]);
 
     useEffect(() => {
