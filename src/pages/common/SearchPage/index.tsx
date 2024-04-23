@@ -3,6 +3,8 @@ import Container from '@common/components/Container.tsx';
 import styled from '@emotion/styled';
 
 import SearchTags from './SearchTags';
+import BestTags from './BestTags';
+import BestItem from './BestItem';
 
 const SearchPage = () => {
     return (
@@ -13,6 +15,7 @@ const SearchPage = () => {
             </Content>
             <Content>
                 <Title>인기검색어</Title>
+                <BestTags />
             </Content>
         </Container>
     );
