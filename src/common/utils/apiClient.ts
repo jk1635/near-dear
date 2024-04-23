@@ -31,18 +31,6 @@ const apiClient = {
             }
         }
     },
-    async delete<T>(url: string): Promise<T> {
-        try {
-            const response: AxiosResponse<T> = await axiosInstance.delete<T>(url);
-            return response.data;
-        } catch (error) {
-            if (axios.isAxiosError(error)) {
-                throw handleError(error);
-            } else {
-                throw new Error('알 수 없는 에러가 발생했습니다.');
-            }
-        }
-    },
 };
 
 const handleError = (error: AxiosError): Error => {

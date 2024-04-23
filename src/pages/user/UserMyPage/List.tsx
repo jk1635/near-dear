@@ -76,7 +76,7 @@ const List = () => {
                                 </Product>
                                 <Name>{reservationItm.name}</Name>
                                 <Time>{reservationItm.time}</Time>
-                                <Count>{reservationItm.request}</Count>
+                                <Request>{reservationItm.request}</Request>
                             </Information>
                         </Content>
                         {/* <Button onClick={() => setDone(!done)} done={done}>
@@ -159,6 +159,9 @@ const Time = styled.div`
     color: ${({ theme }) => theme.colors.gray};
 `;
 const Count = styled.div``;
+const Request = styled.div`
+    ${({ theme }) => theme.typography.small_text};
+`;
 
 const Button = styled.div<{ done: boolean }>`
     cursor: pointer;

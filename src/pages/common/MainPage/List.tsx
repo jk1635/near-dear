@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import { useNavigate } from 'react-router-dom';
+
 import styled from '@emotion/styled';
 
 import Button from '@common/components/Button';
@@ -9,6 +11,7 @@ import { SelectedList } from './SelectedList';
 const List = () => {
     const category = ['상품', '당일예약', '클래스'];
     const [categoryState, setCategoryState] = useState('상품');
+    const navigate = useNavigate();
 
     const categoryOnClick = (itm: string) => {
         if (itm === '상품') {
@@ -21,6 +24,8 @@ const List = () => {
             setCategoryState('클래스');
         }
     };
+
+    const toLocal = toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
 
     return (
         <>
@@ -36,27 +41,71 @@ const List = () => {
                               return (
                                   <ListItem>
                                       <Img></Img>
-                                      <Name>{itm.name}</Name>
-                                      <Price>{itm.discount}</Price>
-                                      <Location>
-                                          {itm.location} {itm.store}
-                                      </Location>
+                                      <Content>
+                                          <Name>{itm.name}</Name>
+                                          <Location>
+                                              {itm.location} / {itm.store}
+                                          </Location>
+                                          <Price>
+                                              {parseInt(itm.discount)
+                                                  .toString()
+                                                  .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}
+                                              원 <VAT>VAT포함</VAT>
+                                          </Price>
+                                      </Content>
                                   </ListItem>
                               );
-                      })
+                      }).slice(0, 6)
                     : ''}
                 {categoryState === '당일예약'
                     ? SelectedList.map(itm => {
-                          if (itm.당일예약가능여부 === 'yes') return <ListItem>{itm.type}</ListItem>;
-                      })
+                          if (itm.당일예약가능여부)
+                              return (
+                                  <ListItem>
+                                      {' '}
+                                      <Img></Img>
+                                      <Content>
+                                          <Name>{itm.name}</Name>
+                                          <Location>
+                                              {itm.location} / {itm.store}
+                                          </Location>
+                                          <Price>
+                                              {parseInt(itm.discount)
+                                                  .toString()
+                                                  .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}
+                                              원 <VAT>VAT포함</VAT>
+                                          </Price>
+                                      </Content>
+                                  </ListItem>
+                              );
+                      }).slice(0, 6)
                     : ''}
                 {categoryState === '클래스'
                     ? SelectedList.map(itm => {
-                          if (itm.type === '클래스') return <ListItem>{itm.type}</ListItem>;
-                      })
+                          if (itm.type === '클래스')
+                              return (
+                                  <ListItem>
+                                      <Img></Img>
+                                      <Content>
+                                          <Name>{itm.name}</Name>
+                                          <Location>
+                                              {itm.location} / {itm.store}
+                                          </Location>
+                                          <Price>
+                                              {parseInt(itm.discount)
+                                                  .toString()
+                                                  .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}
+                                              원 <VAT>VAT포함</VAT>
+                                          </Price>
+                                      </Content>
+                                  </ListItem>
+                              );
+                      }).slice(0, 6)
                     : ''}
             </SelectedList_CSS>
-            <Button>전체보기</Button>
+            <Button variant="outline" onClick={() => navigate('/list')}>
+                전체보기
+            </Button>
         </>
     );
 };
@@ -68,22 +117,49 @@ const MenuItem = styled.div`
     padding: 15px;
 `;
 
+const VAT = styled.div`
+    margin-left: 10px;
+    font-size: 0.8rem;
+    color: #bead9c;
+`;
+
+const Content = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    justify-content: center;
+`;
+
 const SelectedList_CSS = styled.div`
     display: flex;
     flex-direction: column;
 `;
 const ListItem = styled.div`
-    padding: 15px;
+    display: flex;
+    padding: 10px 10px;
     height: 120px;
     border: 1px solid lightgray;
     margin-bottom: 10px;
-    display: flex;
-    flex-direction: column;
+    gap: 15px;
 `;
 
-const Img = styled.img``;
+const Img = styled.div`
+    width: 100px;
+    height: 100%;
+    background-color: ${({ theme }) => theme.colors.primary};
+`;
 
-const Price = styled.div``;
-const Location = styled.div``;
-const Name = styled.div``;
+const Price = styled.div`
+    display: flex;
+    align-items: center;
+    ${({ theme }) => theme.typography.title3};
+`;
+const Location = styled.div`
+    ${({ theme }) => theme.typography.small_text};
+    color: ${({ theme }) => theme.colors.gray};
+    font-weight: 550;
+`;
+const Name = styled.div`
+    ${({ theme }) => theme.typography.title2}
+`;
 export default List;
