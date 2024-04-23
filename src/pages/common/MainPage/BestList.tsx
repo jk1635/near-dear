@@ -38,6 +38,7 @@ const Container = styled.div`
 const Title = styled.div`
     ${({ theme }) => theme.typography.title2};
 `;
+
 const Scroll = styled.div`
     display: flex;
     margin-top: 10px;
@@ -53,6 +54,7 @@ const Img = styled.img`
     min-width: 150px;
     min-height: 150px;
 `;
+
 const BestItem = styled.div`
     margin-right: 10px;
     display: flex;
@@ -65,6 +67,7 @@ const Name = styled.div`
     margin-top: 5px;
     ${({ theme }) => theme.typography.title2}
 `;
+
 const Location = styled.div`
     ${({ theme }) => theme.typography.small_text};
     color: ${({ theme }) => theme.colors.gray};
@@ -73,12 +76,10 @@ const Location = styled.div`
 const Price = styled.div`
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
     ${({ theme }) => theme.typography.title3};
 `;
 
 const VAT = styled.div`
-    /* margin-left: 10px; */
     font-size: 0.8rem;
     color: #bead9c;
 `;

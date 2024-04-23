@@ -1,4 +1,4 @@
-export const BestItemData = [
+export const BestTagsData = [
     {
         ranking: 1,
         tag: '꽃다발',
@@ -21,6 +21,14 @@ export const BestItemData = [
     },
     {
         ranking: 6,
+        tag: '꽃다발',
+    },
+    {
+        ranking: 7,
+        tag: '꽃다발',
+    },
+    {
+        ranking: 8,
         tag: '꽃다발',
     },
 ];

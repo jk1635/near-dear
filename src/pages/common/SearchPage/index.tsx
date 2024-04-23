@@ -17,6 +17,10 @@ const SearchPage = () => {
                 <Title>인기검색어</Title>
                 <BestTags />
             </Content>
+            <Content>
+                <Title>어떤 제품을 찾으세요?</Title>
+                <BestItem />
+            </Content>
         </Container>
     );
 };
@@ -25,6 +29,7 @@ const Content = styled.div`
     display: flex;
     flex-direction: column;
     gap: 5px;
+    margin-bottom: 40px;
 `;
 
 const Title = styled.div`

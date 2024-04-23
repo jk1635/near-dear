@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { BestItemData } from './BestItemData';
+import { BestTagsData } from './BestTagsData';
 
 const BestTags = () => {
     return (
         <Container>
-            {BestItemData.map(itm => (
+            {BestTagsData.map(itm => (
                 <Item>
                     <Ranking>{itm.ranking}</Ranking>
                     <Tag>{itm.tag}</Tag>
