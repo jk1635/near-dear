@@ -6,20 +6,14 @@
 - 작성 예정
 
 ## 2. 실행 방법
-
-```bash
-> yarn install
-> yarn start
-```
+- 작성 예정
 
 ## 3. 기술 스택
-- React
-- TypeScript
-- Emotion
-- Vite
-- Recoil
-- React Query
-- React Hook Form
+
+### 프론트엔드
+- React.js, TypeScript, Emotion, Vite, Recoil, React Query, React Hook Form (업데이트 중)
+### 백엔드
+- Node.js, Express, JavaScript, MongoDB (업데이트 중)
 
 ## 4. 프로젝트 구조
 - 작성 예정
