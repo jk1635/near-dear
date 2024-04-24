@@ -3,11 +3,14 @@ import React, { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 
 const SearchTags = () => {
-    const [getTags, setGetTags] = useState(JSON.parse(localStorage.getItem('keywords')));
+    const [getTags, setGetTags] = useState(localStorage.getItem('keywords') || '');
+    // const [getTags, setGetTags] = useState(JSON.parse(localStorage.getItem('keywords')));
+
+    const getTagsArr = JSON.parse(getTags);
 
     useEffect(() => {}, [getTags]);
 
-    return <Container>{getTags?.map(itm => <Tags>{itm}</Tags>)}</Container>;
+    return <Container>{getTagsArr?.map(itm => <Tags>{itm}</Tags>)}</Container>;
 };
 
 const Container = styled.div`

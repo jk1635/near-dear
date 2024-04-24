@@ -1,18 +1,21 @@
 import React, { useState, useRef, useEffect } from 'react';
 
 import { useLocation } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
 
 import styled from '@emotion/styled';
 
+import { keywordState } from '../router/stores/atoms';
+
 const Search = () => {
-    const [keyword, setKeyword] = useState('');
+    const [keyword, setKeyword] = useRecoilState(keywordState);
     const [keywords, setKeywords] = useState([]);
 
     useEffect(() => {
         localStorage.setItem('keywords', JSON.stringify(keywords));
     }, [keywords]);
 
-    const onSearch = e => {
+    const onSearch = (e: React.ChangeEventHandler<HTMLInputElement>) => {
         if (e.key === 'Enter') {
             const currentValue = e.target.value;
             setKeywords([currentValue, ...keywords]);
