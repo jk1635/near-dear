@@ -1,11 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
-import { useLocation } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 
 import styled from '@emotion/styled';
 
-import { keywordState } from '../router/stores/atoms';
+import { keywordState } from '@common/stores/atoms';
 
 const Search = () => {
     const [keyword, setKeyword] = useRecoilState(keywordState);
